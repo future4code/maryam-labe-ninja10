@@ -27,9 +27,9 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 
 https://coolors.co/ff9933-000000-ffffff-727d71-f5f6fa
 
-### DESINGN SYSTEM
+### DESIGN SYSTEM
 
-Chakra UI
+- Chakra UI
 
 ### WIREFRAME
 
