@@ -11,7 +11,7 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 
 ### LOGO
 
-image-20210928164008699
+![image-20210928164913182](C:\Users\sarah\AppData\Roaming\Typora\typora-user-images\image-20210928164913182.png)
 
 ### PARTICIPANTES
 
@@ -20,5 +20,25 @@ image-20210928164008699
 3. Leonardo Souza Gomes
 4. Murilo Terenciani
 5. Sarah Romanhol Falconiere
-6. 
+
+### PALETA DE CORES
+
+https://coolors.co/ff9933-000000-ffffff-727d71-f5f6fa
+
+### DESINGN SYSTEM
+
+Chakra UI
+
+### WIREFRAME
+
+### DESCRIÇÃO
+
+A estilização do site, montada no wireframe, foi pensada de forma que as informações fossem dispostas da forma mais objetiva possível. Sendo assim:
+1. na Home o usuário se depara com as duas opções ofertadas pelo site, a de cadastro do serviço e a de contratação do serviço. De lá, o usuário é redirecionado para a página de cadastro ou para a de serviços, dependendo do botão que clicar. Optamos por dispor essas opções uma ao lado da outra, e as deixamos como a única informação da Home, para que não fique um site carregado de informações que podem confundir o usuário.
+2. o Header foi disposto com um conceito simples, contendo somente os botões de Home e Carrinho, além da logo e do nome da empresa. Escolhemos fazer esse item do site com a cor preta, de forma a destacar essa parte. Assim, os outros componentes do site foram estilizados com cores mais amenas, porém bem marcantes, misturando o laranja e o branco.
+3. A página de cadastro permite o usuário passar informações básicas do seu serviço. Escolhemos indicar qual informação deverá ser passada em cada quadro por meio do placeholder, ao invés de colocar a palavra acima da caixinha. Dessa forma, a interface fica mais limpa.
+4. Na página de serviços, o usuário consegue filtrar os serviços por valor mínimo e máximo e fazer uma busca de palavra chave. Além disso, é possível ordenar a disposição dos serviços de forma crescente ou decrescente em relação a preço, prazo e nome (ordem alfabetica). Escolhemos deixar os filtros em uma coluna na lateral esquerda, como é o padrão em diversos sites similares. A opção para ordenar os serviços ficou acima dos cards, bem como a opção de buscar palavra.
+5. Em cada card de serviço, o usuário pode clicar no botão para adicionar o serviço ao carrinho ou visualizar detalhes do serviço.
+6. A página de detalhes do serviço mostra todas as informações daquele serviço, caso o usuário tenha interesse em saber das formas de pagamento e da descrição. 
+7. A página do carrinho dispõe a lista de produtos/serviços selecionados do lado esquerdo da tela e um card com a soma dos produtos e o botão de finalizar a compra do lado direito. Escolhemos fazer dessa forma para seguir um padrão que ocorre na maioria dos e-commerces, tornando o site intuitivo para primeiros usuários.
 
