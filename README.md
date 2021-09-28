@@ -35,6 +35,9 @@ Chakra UI
 
 [WireFrame-Maryam-10.drawio (1).pdf](https://github.com/future4code/maryam-labe-ninja10/files/7247400/WireFrame-Maryam-10.drawio.1.pdf)
 
+![WireFrame-Maryam-10 drawio](https://user-images.githubusercontent.com/84152828/135168648-d8ec6aa5-abe7-49f5-9a25-796dc50c939e.png)
+
+
 
 ### DESCRIÇÃO
 
