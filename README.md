@@ -33,6 +33,9 @@ Chakra UI
 
 ### WIREFRAME
 
+[WireFrame-Maryam-10.drawio (1).pdf](https://github.com/future4code/maryam-labe-ninja10/files/7247400/WireFrame-Maryam-10.drawio.1.pdf)
+
+
 ### DESCRIÇÃO
 
 A estilização do site, montada no wireframe, foi pensada de forma que as informações fossem dispostas da forma mais objetiva possível. Sendo assim:
