@@ -11,7 +11,8 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 
 ### LOGO
 
-![image-20210928164913182](C:\Users\sarah\AppData\Roaming\Typora\typora-user-images\image-20210928164913182.png)
+![logo-alternativa](https://user-images.githubusercontent.com/84152828/135164579-2c370ec5-7709-43f1-a96b-c942d4c637f9.png)
+
 
 ### PARTICIPANTES
 
