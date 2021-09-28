@@ -1,4 +1,4 @@
-#### PROJETO E-COMMERCE
+#### PROJETO LabeNinjas
 
 # NEXUM
 
