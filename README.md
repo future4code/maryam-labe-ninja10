@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### PROJETO E-COMMERCE
 
-## Available Scripts
+# NEXUM
 
-In the project directory, you can run:
+O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam desses serviços no seu dia-a-dia. Com uma interface intuitiva, o site da Nexum permite a oferta e contratação de serviços em pouco tempo, e pode ser realizada até mesmo pelo smartphone. Nesse site, o usuário consegue: 
 
-### `npm start`
+- Oferecer seu serviço, indicando o nome, descrição, preço, formas de pagamento e o prazo em que a oferta vence;
+- Navegar entre os serviços ofertados, filtrando por preço e por palavra chave
+- Adicionar produtos ao carrinho, visualizando o total da compra
+- Finalizar a compra, contratando um ou mais serviços.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### LOGO
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![logo-alternativa](https://user-images.githubusercontent.com/84152828/135164579-2c370ec5-7709-43f1-a96b-c942d4c637f9.png)
+![logo-principal](https://user-images.githubusercontent.com/84152828/135164731-03207ae2-251a-472e-bf11-2a158db3b74a.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### PARTICIPANTES
 
-### `npm run build`
+1. Geisy Lopes
+2. Lucas Homero Sabino
+3. Leonardo Souza Gomes
+4. Murilo Terenciani
+5. Sarah Romanhol Falconiere
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### PALETA DE CORES
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+https://coolors.co/ff9933-000000-ffffff-727d71-f5f6fa
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### DESINGN SYSTEM
 
-### `npm run eject`
+Chakra UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### WIREFRAME
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[WireFrame-Maryam-10.drawio (1).pdf](https://github.com/future4code/maryam-labe-ninja10/files/7247400/WireFrame-Maryam-10.drawio.1.pdf)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![WireFrame-Maryam-10 drawio](https://user-images.githubusercontent.com/84152828/135168648-d8ec6aa5-abe7-49f5-9a25-796dc50c939e.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### DESCRIÇÃO
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A estilização do site, montada no wireframe, foi pensada de forma que as informações fossem dispostas da forma mais objetiva possível. Sendo assim:
+1. na Home o usuário se depara com as duas opções ofertadas pelo site, a de cadastro do serviço e a de contratação do serviço. De lá, o usuário é redirecionado para a página de cadastro ou para a de serviços, dependendo do botão que clicar. Optamos por dispor essas opções uma ao lado da outra, e as deixamos como a única informação da Home, para que não ficasse um site carregado de informações que podem confundir o usuário.
+2. o Header foi disposto com um conceito simples, contendo somente os botões de Home e Carrinho, além da logo e do nome da empresa. Escolhemos fazer esse item do site com a cor preta, de forma a destacar essa parte. Assim, os outros componentes do site foram estilizados com cores mais amenas, porém bem marcantes, misturando o laranja e o branco.
+3. A página de cadastro permite ao usuário passar informações básicas do seu serviço. Escolhemos indicar qual informação deverá ser passada em cada quadro por meio do placeholder, ao invés de colocar a palavra acima da caixinha. Dessa forma, a interface fica mais limpa. Além disso, as opções de pagamento foram dispostas em uma lista com "checks", para que o usuário marque as opções de papagento aceitas de uma forma mais simples.
+4. Na página de serviços, o usuário consegue filtrar os serviços por valor mínimo e máximo e fazer uma busca de palavra chave. Além disso, é possível ordenar a disposição dos serviços de forma crescente ou decrescente em relação a preço, prazo e nome (ordem alfabetica). Escolhemos deixar os filtros em uma coluna na lateral esquerda, como é o padrão em diversos sites similares. A opção para ordenar os serviços ficou acima dos cards, bem como a opção de buscar palavra.
+5. Em cada card de serviço, o usuário pode clicar no botão para adicionar o serviço ao carrinho ou visualizar detalhes do serviço.
+6. A página de detalhes do serviço mostra todas as informações daquele serviço, caso o usuário tenha interesse em saber das formas de pagamento e da descrição. 
+7. A página do carrinho dispõe a lista de produtos/serviços selecionados do lado esquerdo da tela e um card com a soma dos produtos e o botão de finalizar a compra do lado direito. Escolhemos fazer dessa forma para seguir um padrão que ocorre na maioria dos e-commerces, tornando o site intuitivo para primeiros usuários.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
