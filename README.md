@@ -12,6 +12,7 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 ### LOGO
 
 ![logo-alternativa](https://user-images.githubusercontent.com/84152828/135164579-2c370ec5-7709-43f1-a96b-c942d4c637f9.png)
+![logo-principal](https://user-images.githubusercontent.com/84152828/135164731-03207ae2-251a-472e-bf11-2a158db3b74a.png)
 
 
 ### PARTICIPANTES
