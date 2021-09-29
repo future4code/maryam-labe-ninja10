@@ -1,5 +1,12 @@
+import Axios from "axios";
 import React from "react";
 import styled from "styled-components";
+
+const headers = {
+    headers: {
+        Authorization: "7b34660a-e65f-4a6b-b3af-7b3651eccdad"
+    }
+}
 
 // Filtros
 
@@ -41,7 +48,50 @@ const Botao = styled.button`
 
 
 export default class Servicos extends React.Component {
+    state = {
+        servicos: []
+    }
+
+    componentDidMount () {
+        this.getAllJobs()
+    }
+
+    getAllJobs = () => {
+        const url = 'https://labeninjas.herokuapp.com/jobs'
+
+        Axios
+        .get(url, headers)
+        .then((res) => {
+            this.setState({
+                servicos: res.data.jobs
+            })
+        })
+        .catch((err) => {
+            alert(err)
+        })
+    }
+
     render() {
+
+        const listServicos = this.state.servicos.map((servico) => {
+            
+            return (
+                <Cards key={servico.id}>
+                    <h3>{servico.title}</h3>
+                    <p>
+                        <b>Preço:</b>
+                        R$ {servico.price}
+                    </p>
+                    <p>
+                        <b>Prazo:</b>
+                        {servico.dueDate}
+                    </p>
+                    <button>Ver Detalhes</button>
+                    <button>Adicionar no Carrinho</button>
+                </Cards>
+            )
+        })
+        
         return (
             <div>
                 <ContainerFilter>
@@ -58,19 +108,7 @@ export default class Servicos extends React.Component {
                 </ContainerFilter>
 
                 <ContainerServicos>
-                    <Cards>
-                        <h3>Web Developer</h3>
-                        <p>
-                            <b>Preço:</b>
-                            R$ 1200.00
-                        </p>
-                        <p>
-                            <b>Prazo:</b>
-                            29/09/2021
-                        </p>
-                        <button>Ver Detalhes</button>
-                        <button>Adicionar no Carrinho</button>
-                    </Cards>
+                    {listServicos}
                 </ContainerServicos>
             </div>
         )

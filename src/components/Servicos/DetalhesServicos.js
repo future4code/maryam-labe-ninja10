@@ -18,7 +18,6 @@ const BotoesContainer = styled.div`
     font-size: 2em;
     padding: 40px 20px;
     margin-right: 5px;
-    backe
 `
 const Cardes = styled.div`
     border-radius: 30px;
