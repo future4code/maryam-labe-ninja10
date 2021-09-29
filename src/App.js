@@ -1,10 +1,10 @@
 import React from 'react'
 import { AppContainer } from './components/AppContainer';
-import DetalhesServicos from './components/Servicos/DetalhesServicos'
+import Carrinho from './components/Carrinho/Carrinho';
 
 function App() {
 	return (
-        <DetalhesServicos/>
+        <Carrinho/>
 	)
 }
 

@@ -8,7 +8,7 @@ const DetalhesServicosContainer= styled.div`
     padding: 10px 20px;
     margin-top: 10px;
     margin-right: 10px;
-    background-color: white;
+    
 `
 
 const BotoesContainer = styled.div`
