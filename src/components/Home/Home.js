@@ -5,7 +5,7 @@ const HomeContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     padding: 40px 0px;
-    background-color: orange;
+    background-color: #FF9933;
     height: 100vh;
 `
 
