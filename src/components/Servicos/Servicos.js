@@ -10,22 +10,25 @@ const headers = {
     }
 }
 
-// Filtros
+// Container Buscar e Ordenação
 
-const ContainerFilter = styled.div `
+const ContainerPesquisa = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 120px;
-    padding: 25px;
+    justify-content: space-around;
+    padding: 250px;
+    
     input {
-        width: 300px;
-        margin-bottom: 10px;
+        width: 400px;
+        border-radius: 20px;
+
     }
+
     select {
-        width: 300px;
+        width: 200px;
+        height: 30px;
         margin-bottom: 10px;
+        border-radius: 20px;
     }
 `
 
@@ -35,7 +38,7 @@ const ContainerFilter = styled.div `
 
 const ContainerServicos = styled.div`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin: 10px;
 `
 
@@ -44,11 +47,24 @@ const Cards = styled.div`
     background-color: #FF9933;
     padding: 0px 16px 16px;
     margin: 10px;
+    text-align: center;
 `
 
 const Botao = styled.button`
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    color: #FF9933;
+    cursor: pointer;
+    border: hidden;
 `
+
 
 
 export default class Servicos extends React.Component {
@@ -105,67 +121,79 @@ export default class Servicos extends React.Component {
     }
 
     render() {
-
-        const listServicos = this.state.servicos.map((servico) => {
-            
-            return (
-                <Cards key={servico.id}>
-                    <h3>{servico.title}</h3>
-                    <p>
-                        <b>Preço:</b>
-                        R$ {servico.price}
-                    </p>
-                    <p>
-                        <b>Prazo:</b>
-                        {servico.dueDate}
-                    </p>
-                    <button>Ver Detalhes</button>
-                    <button>Adicionar no Carrinho</button>
-                </Cards>
-            )
-        })
         
         return (
             <div>
-                <Filtro>
-                buscar={this.state.buscar} 
-                updateBuscar={this.updateBuscar}
+                
+                <Filtro 
                 precoMin={this.state.precoMin}
                 updatePrecoMin={this.updatePrecoMin}
                 precoMax={this.state.precoMax}
                 updatePrecoMax={this.updatePrecoMax}
-                
-                </Filtro>
+                />
 
-                <select value={this.state.ordenacao} onChange={this.updateOrdenacao}>
-                    <option value="titulo">Título</option>
-                    <option value="menor preço">Menor Preço</option>
-                    <option value="maior preço">Maior Preço</option>
-                    <option value="prazo">Prazo</option>
-                    {this.state.ordenacao}
-                </select>
+                <ContainerPesquisa>
 
+                    <input placeholder="Busca por título ou descrição" type="text" id="nomeServico" name="nomeServico" value={this.state.buscar} onChange={this.updateBuscar} />
+
+                    <select value={this.state.ordenacao} onChange={this.updateOrdenacao}>
+                        <option value="titulo">Título</option>
+                        <option value="decrescente preço">Decrescente</option>
+                        <option value="crescente preço">Crescente</option>
+                        <option value="prazo">Prazo</option>
+                        {this.state.ordenacao}
+                    </select>
+
+                </ContainerPesquisa>
                 
                 <ContainerServicos>
 
-                  {listServicos}
-
-
-                {/* .sort((atualServico, proximoServico) => {
-                    switch (this.state.ordenacao) {
-                        case "maior preço":
-                            return 1 * (atualServico.value - proximoServico.value)
-                        case "menor preço":
-                            return -1 * (atualServico.value - proximoServico.value)
-                        case "titulo":
-                            return 1 * (atualServico.value - proximoServico.value)
-                        case "prazo":
-                            return -1 * (atualServico.value - proximoServico.value)
-                    
+                    {this.state.servicos
+                        .filter((servico) => {
+                            return (this.state.precoMin === "") || (this.state.precoMin <= servico.price)
+                        })
+                        .filter((servico) => {
+                            return (this.state.precoMax === "") || (this.state.precoMax >= servico.price)
+                        })
+                        .filter((servico) => {
+                            return (servico.title.toLowerCase().includes(this.state.buscar.toLowerCase()))
+                        })
+                        .sort((atualServico, proximoServico) => { 
+                            switch (this.state.ordenacao) {
+                                case "crescente preço":
+                                    return 1 * (atualServico.price - proximoServico.price)
+                                case "decrescente preço":
+                                    return -1 * (atualServico.price - proximoServico.price)
+                                case "titulo":
+                                    let a = atualServico.title.toUpperCase()
+                                    let b = proximoServico.title.toUpperCase();
+                                    return a == b ? 0 : a > b ? 1 : -1;
+                                case "prazo":
+                                    let c = new Date(atualServico.dueDate)     
+                                    let d = new Date(proximoServico.dueDate);
+                                    return c - d;     
+                                default:
+                                    return "Nenhuma ordenação selecionada"
+                            }
+                        })
+                        .map((servico) => {
+                            return (
+                                <Cards key={servico.id}>
+                                    <h3>{servico.title}</h3>
+                                    <p>
+                                        <b>Preço:</b>
+                                        R$ {servico.price}
+                                    </p>
+                                    <p>
+                                        <b>Prazo:</b>
+                                        {servico.dueDate}
+                                    </p>
+                                    <Botao>Ver Detalhes</Botao>
+                                    <Botao>Adicionar no Carrinho</Botao>
+                                </Cards>
+                            )
+                        })            
                     }
-                }) */}
-
-                    
 
                 </ContainerServicos>
             </div>
