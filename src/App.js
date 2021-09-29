@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
+import Servicos from './components/Servicos/Servicos';
 import Carrinho from './components/Carrinho/Carrinho';
 
 
@@ -17,12 +18,17 @@ export default class App extends React.Component {
 	render() {
 
 		const renderCurrentPage = () => {
-			if (this.state.currentPage === 'home') {
-				return <Home />
-			} else if (this.state.currentPage === 'carrinho') {
-				return <Carrinho />
+			switch (this.state.currentPage) {
+				case 'home':
+					return <Home changePage={this.changePage} />
+				case 'carrinho':
+					return <Carrinho/>
+				case 'servicos':
+					return <Servicos />
+				case 'register':
+					return <Register />
 			}
-		};
+		}
 
 
 		return (
@@ -33,4 +39,3 @@ export default class App extends React.Component {
 		)
 	}
 }
-
