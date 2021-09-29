@@ -1,3 +1,4 @@
+import React from "react";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
@@ -21,7 +22,7 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho/>
+					return <Carrinho changePage={this.changePage}/>
 				case 'servicos':
 					return <Servicos />
 				case 'register':
