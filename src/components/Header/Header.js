@@ -24,11 +24,6 @@ const ButtonsContainer = styled.span`
     align-items: center;
 `
 
-// A FUNÇÃO ABAIXO DEVE ENTRAR NO APP.JS, SENDO Q NO STATE DO APP.JS DEVE TER UMA PROPRIEDADE CHAMADA currentPage
-// changePage = (currentPage) => {
-//     this.setState({ currentPage: currentPage })
-// }
-
 
 export default function Header(props) {
     return (
@@ -38,8 +33,8 @@ export default function Header(props) {
                 <h1>NEXUM</h1>
             </LogoAndTitleContainer>
             <ButtonsContainer>
-                <button /*onClick={() => props.changePage("homePage")}*/>Home</button>
-                <button /*onClick={() => props.changePage("shoppingCartPage")}*/>Carrinho</button>
+                <button onClick={() => props.changePage("home")}>Home</button>
+                <button onClick={() => props.changePage("carrinho")}>Carrinho</button>
             </ButtonsContainer>
         </HeaderContainer>
     )
