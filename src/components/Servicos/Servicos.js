@@ -120,8 +120,7 @@ export default class Servicos extends React.Component {
         })
     }
 
-    render() {
-        
+    render() {        
         return (
             <div>
                 
@@ -177,6 +176,16 @@ export default class Servicos extends React.Component {
                             }
                         })
                         .map((servico) => {
+                            function adicionaZero(numero) {
+                                if (numero <= 9) {
+                                    return "0" + numero
+                                } else {
+                                    return numero
+                                }
+                            }
+                            let data = new Date(servico.dueDate);
+                            // Precisa arrumar, pois transforma o dia para um dia anterior.
+                            let dataFormatada = (adicionaZero(data.getDate())) + "/" + (adicionaZero(data.getMonth() + 1)) + "/" + data.getFullYear(); 
                             return (
                                 <Cards key={servico.id}>
                                     <h3>{servico.title}</h3>
