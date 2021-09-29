@@ -1,6 +1,35 @@
+import Axios from "axios";
 import React from "react";
 import styled from "styled-components";
 import Filtro from "./Filtro";
+
+
+const headers = {
+    headers: {
+        Authorization: "7b34660a-e65f-4a6b-b3af-7b3651eccdad"
+    }
+}
+
+// Filtros
+
+const ContainerFilter = styled.div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 120px;
+    padding: 25px;
+    input {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+    select {
+        width: 300px;
+        margin-bottom: 10px;
+    }
+`
+
+
 
 // Cards Serviços
 
@@ -23,12 +52,32 @@ const Botao = styled.button`
 
 
 export default class Servicos extends React.Component {
-    
+
     state = {
-    buscar: "",
-    precoMin: "",
-    precoMax: "",
-    ordenacao: ""
+        servicos: [],
+        buscar: "",
+        precoMin: "",
+        precoMax: "",
+        ordenacao: ""
+    }
+
+    componentDidMount () {
+        this.getAllJobs()
+    }
+
+    getAllJobs = () => {
+        const url = 'https://labeninjas.herokuapp.com/jobs'
+
+        Axios
+        .get(url, headers)
+        .then((res) => {
+            this.setState({
+                servicos: res.data.jobs
+            })
+        })
+        .catch((err) => {
+            alert(err)
+        })
     }
 
     updateBuscar = (event) => {
@@ -55,9 +104,27 @@ export default class Servicos extends React.Component {
         })
     }
 
-
     render() {
 
+        const listServicos = this.state.servicos.map((servico) => {
+            
+            return (
+                <Cards key={servico.id}>
+                    <h3>{servico.title}</h3>
+                    <p>
+                        <b>Preço:</b>
+                        R$ {servico.price}
+                    </p>
+                    <p>
+                        <b>Prazo:</b>
+                        {servico.dueDate}
+                    </p>
+                    <button>Ver Detalhes</button>
+                    <button>Adicionar no Carrinho</button>
+                </Cards>
+            )
+        })
+        
         return (
             <div>
                 <Filtro>
@@ -81,6 +148,9 @@ export default class Servicos extends React.Component {
                 
                 <ContainerServicos>
 
+                  {listServicos}
+
+
                 {/* .sort((atualServico, proximoServico) => {
                     switch (this.state.ordenacao) {
                         case "maior preço":
@@ -95,19 +165,8 @@ export default class Servicos extends React.Component {
                     }
                 }) */}
 
-                    <Cards>
-                        <h3>Web Developer</h3>
-                        <p>
-                            <b>Preço:</b>
-                            R$ 1200.00
-                        </p>
-                        <p>
-                            <b>Prazo:</b>
-                            29/09/2021
-                        </p>
-                        <button>Ver Detalhes</button>
-                        <button>Adicionar no Carrinho</button>
-                    </Cards>
+                    
+
                 </ContainerServicos>
             </div>
         )
