@@ -115,7 +115,7 @@ export default class Servicos extends React.Component {
                 }
             }
             let data = new Date(servico.dueDate);
-            // Precisa arrumar, pois transforma o dia para o um dia anterior.
+            // Precisa arrumar, pois transforma o dia para um dia anterior.
             let dataFormatada = (adicionaZero(data.getDate())) + "/" + (adicionaZero(data.getMonth() + 1)) + "/" + data.getFullYear(); 
             
             return (
