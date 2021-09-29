@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ManagerPage from "./ManagerPage";
 
 const HomeContainer = styled.div`
     display: flex;
@@ -23,20 +24,18 @@ const CadastrareContratarContainer = styled.span`
 const Buttons = styled.button`
     margin: 10px;
 `
-//DEVE SER FEITA UMA ManagerPage PRA SERVIÇOS, DE FORMA A RENDERIZAR AS PÁGINAS AO CLICAR NOS BOTÕES DA HOME
-export default class Home extends React.Component {
-    render() {
-        return (
-            <HomeContainer>
-                <CadastrareContratarContainer>
-                    <Buttons>Quero cadastrar um serviço</Buttons>
-                    <p>	Lorem ipsum iaculis ac orci lobortis pretium, porttitor donec quisque lobortis ac interdum neque</p>
-                </CadastrareContratarContainer>
-                <CadastrareContratarContainer>
-                    <Buttons>Quero contratar um serviço</Buttons>
-                    <img alt='Imagem de homem segurando uma furadeira'></img>
-                </CadastrareContratarContainer>
-            </HomeContainer >
-        )
-    }
+
+export default function Home(props) {
+    return (
+        <HomeContainer>
+            <CadastrareContratarContainer>
+                <Buttons onClick={() => props.changePage("register")}>Quero cadastrar um serviço</Buttons>
+                <p>	Lorem ipsum iaculis ac orci lobortis pretium, porttitor donec quisque lobortis ac interdum neque</p>
+            </CadastrareContratarContainer>
+            <CadastrareContratarContainer>
+                <Buttons onClick={() => props.changePage("servicos")}>Quero contratar um serviço</Buttons>
+                <img alt='Imagem de homem segurando uma furadeira'></img>
+            </CadastrareContratarContainer>
+        </HomeContainer >
+    )
 }

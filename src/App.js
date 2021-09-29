@@ -1,11 +1,39 @@
-import React from 'react'
-import { AppContainer } from './components/AppContainer';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import Register from './components/register/Register';
+import Servicos from './components/Servicos/Servicos';
 import Carrinho from './components/Carrinho/Carrinho';
 
-function App() {
-	return (
-        <Carrinho/>
-	)
-}
+export default class App extends React.Component {
+	state = {
+		currentPage: 'home'
+	}
 
-export default App
+	changePage = (currentPage) => {
+		this.setState({ currentPage: currentPage })
+	}
+
+	render() {
+
+		const renderCurrentPage = () => {
+			switch (this.state.currentPage) {
+				case 'home':
+					return <Home changePage={this.changePage} />
+				case 'carrinho':
+					return <Carrinho/>
+				case 'servicos':
+					return <Servicos />
+				case 'register':
+					return <Register />
+			}
+		}
+
+
+		return (
+			<div>
+				<Header changePage={this.changePage} />
+				{renderCurrentPage()}
+			</div>
+		)
+	}
+}
