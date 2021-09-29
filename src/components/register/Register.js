@@ -1,5 +1,12 @@
+import Axios from "axios";
 import React from "react";
 import styled from "styled-components";
+
+const headers = {
+    headers: {
+        Authorization: "7b34660a-e65f-4a6b-b3af-7b3651eccdad"
+    }
+}
 
 const ContainerPageRegister = styled.div `
     background-color: #FF9933;
@@ -113,6 +120,34 @@ class Register extends React.Component {
         this.setState({ selected })
     }
     
+    createJob = () => {
+        const url = 'https://labeninjas.herokuapp.com/jobs'
+        const body = {
+            title: this.state.servico,
+            description: this.state.descricao,
+            price: Number(this.state.preco),
+            paymentMethods: this.state.pagamentoSelecionado,
+            dueDate: this.state.prazo
+        }
+
+        Axios
+        .post(url, body, headers)
+        .then((res) => {
+            alert(`${res.data.message}: ${body.title}`)
+            this.setState(
+                {
+                    servico: "",
+                    descricao: "",
+                    prazo: "",
+                    preco: "",
+                    pagamentoSelecionado: []
+                }
+            )
+        })
+        .catch((err) => {
+            alert(`${err.response.data.message} ${JSON.stringify(err.response.data.errors)}`)
+        })
+    }
 
     render() {
 
@@ -132,21 +167,21 @@ class Register extends React.Component {
                 <ContainerRegister>
                     <h2>Cadastre o seu serviço</h2>
                     <ContainerForm>
-                        <label for="servico">
+                        <label htmlFor="servico">
                             <Inputs 
                             type="text" id="servico" name="servico" placeholder="Título" 
                             value={this.state.servico} onChange={this.onChangeServico}/>
                         </label>
-                        <label for="descricao">
+                        <label htmlFor="descricao">
                             <Inputs 
                             type="text" id="descricao" name="descricao" placeholder="Descrição" 
                             value={this.state.descricao} onChange={this.onChangeDescricao}/>
                         </label>
-                        <label for="prazo">
+                        <label htmlFor="prazo">
                             <InputDate type="date" id="prazo" name="prazo" 
                             value={this.state.prazo} onChange={this.onChangePrazo}/>
                         </label>
-                        <label for="preco">
+                        <label htmlFor="preco">
                             <Inputs type="number" id="preco" name="preco" placeholder="Preço" min="0" 
                             value={this.state.preco} onChange={this.onChangePreco}/>
                         </label>
@@ -154,7 +189,7 @@ class Register extends React.Component {
                             {checkBoxesPagamento}
                         </LabelPagamentos>
                     </ContainerForm>
-                    <button>Cadastrar Serviço</button>
+                    <button onClick={this.createJob}>Cadastrar Serviço</button>
                 </ContainerRegister>
             </ContainerPageRegister>
         )
