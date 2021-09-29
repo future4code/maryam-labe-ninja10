@@ -21,7 +21,7 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho/>
+					return <Carrinho changePage={this.changePage}/>
 				case 'servicos':
 					return <Servicos />
 				case 'register':

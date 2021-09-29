@@ -82,7 +82,7 @@ export default class Servicos extends React.Component {
                     </SomaContainer>
                 </ContainerCima>
                 <VoltarContainer>
-                    <button>Voltar para Lista</button>
+                    <button onClick={() => this.props.changePage("servicos")}>Voltar para Lista</button>
                 </VoltarContainer>
             </FundoCarrinho>    
         )
