@@ -1,10 +1,8 @@
-import React from 'react'
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
 import Servicos from './components/Servicos/Servicos';
 import Carrinho from './components/Carrinho/Carrinho';
-
 
 export default class App extends React.Component {
 	state = {
