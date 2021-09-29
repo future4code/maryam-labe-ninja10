@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { AppContainer } from './components/AppContainer'
-import Register from './components/register/Register'
+import { AppContainer } from './components/AppContainer';
+import DetalhesServicos from './components/Servicos/DetalhesServicos'
+
 
 function App() {
 	return (
 		<AppContainer />
+
 
 	)
 }
