@@ -74,6 +74,16 @@ export default class Servicos extends React.Component {
     render() {
 
         const listServicos = this.state.servicos.map((servico) => {
+            function adicionaZero(numero) {
+                if (numero <= 9) {
+                    return "0" + numero
+                } else {
+                    return numero
+                }
+            }
+            let data = new Date(servico.dueDate);
+            // Precisa arrumar, pois transforma o dia para o um dia anterior.
+            let dataFormatada = (adicionaZero(data.getDate())) + "/" + (adicionaZero(data.getMonth() + 1)) + "/" + data.getFullYear(); 
             
             return (
                 <Cards key={servico.id}>
@@ -84,7 +94,8 @@ export default class Servicos extends React.Component {
                     </p>
                     <p>
                         <b>Prazo:</b>
-                        {servico.dueDate}
+                        {servico.dueDate}<br></br>
+                        {dataFormatada}
                     </p>
                     <button>Ver Detalhes</button>
                     <button>Adicionar no Carrinho</button>
