@@ -63,6 +63,7 @@ const Botao = styled.button`
     color: #FF9933;
     cursor: pointer;
     border: hidden;
+    font-weight: bold;
 `
 
 
