@@ -2,6 +2,7 @@ import Axios from "axios";
 import React from "react";
 import styled from "styled-components";
 import Filtro from "./Filtro";
+import carrinho from "../../imgs/carrinho2.png"
 
 
 const headers = {
@@ -10,18 +11,35 @@ const headers = {
     }
 }
 
+
+// Disposição na página
+
+const Escopo = styled.div`
+    display: flex; 
+`
+
+const ContainerGlobal = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+
 // Container Buscar e Ordenação
 
 const ContainerPesquisa = styled.div`
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    padding: 250px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     
     input {
         width: 400px;
+        height: 24px;
         border-radius: 20px;
-
+        color: #FF9933;
+        font-weight: 800;
+        padding: 2px 35px;
+        cursor: pointer;
     }
 
     select {
@@ -29,9 +47,12 @@ const ContainerPesquisa = styled.div`
         height: 30px;
         margin-bottom: 10px;
         border-radius: 20px;
+        color: #FF9933;
+        font-weight: 800;
+        padding: 2px 35px;
+        cursor: pointer;
     }
 `
-
 
 
 // Cards Serviços
@@ -40,14 +61,18 @@ const ContainerServicos = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 10px;
+
 `
 
 const Cards = styled.div`
-    border: 1px solid black;
     background-color: #FF9933;
-    padding: 0px 16px 16px;
+    width: 280px;
     margin: 10px;
     text-align: center;
+    border-radius: 25px;
+    color: black;
+    font-weight: 800;
+
 `
 
 const Botao = styled.button`
@@ -55,14 +80,43 @@ const Botao = styled.button`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     margin: 0 auto;
     margin-bottom: 15px;
-    border-radius: 10px;
     width: 200px;
     height: 25px;
+    
+    border-radius: 10px;
+    background-color: white;
     color: #FF9933;
     cursor: pointer;
     border: hidden;
+<<<<<<< HEAD
+    font-weight: bold;
+=======
+    font-weight: 800;
+`
+
+// Botão Adcionar ao Carrinho 
+
+const BotaoCarrinho = styled.button`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 0 auto;
+    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    
+    border-radius: 40px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: hidden;
+    font-weight: 800;
+>>>>>>> 7580794c92a95b3783486ffdaec9342e9d93da8e
 `
 
 
@@ -122,14 +176,16 @@ export default class Servicos extends React.Component {
 
     render() {        
         return (
-            <div>
-                
+            <Escopo>
+
                 <Filtro 
                 precoMin={this.state.precoMin}
                 updatePrecoMin={this.updatePrecoMin}
                 precoMax={this.state.precoMax}
                 updatePrecoMax={this.updatePrecoMax}
                 />
+
+                <ContainerGlobal>
 
                 <ContainerPesquisa>
 
@@ -198,14 +254,15 @@ export default class Servicos extends React.Component {
                                         {servico.dueDate}
                                     </p>
                                     <Botao>Ver Detalhes</Botao>
-                                    <Botao>Adicionar no Carrinho</Botao>
+                                    <BotaoCarrinho><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )
                         })            
                     }
 
                 </ContainerServicos>
-            </div>
+                </ContainerGlobal>
+            </Escopo>
         )
     } 
 }
