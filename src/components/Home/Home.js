@@ -32,6 +32,10 @@ const Buttons = styled.button`
     margin: 10px;
 `
 
+const FotoHome = styled.img`
+    padding-left: 150px;
+`
+
 export default function Home(props) {
     return (
         <div>
@@ -45,7 +49,7 @@ export default function Home(props) {
             </CadastrareContratarContainer>
             <CadastrareContratarContainer>
                 <Buttons onClick={() => props.changePage("servicos")}>Quero contratar um serviço</Buttons>
-                <img src={fotoHome} alt='Mulher com computador'></img>
+                <FotoHome src={fotoHome} alt='Mulher com computador'></FotoHome>
             </CadastrareContratarContainer>
         </HomeContainer >
         </div>
