@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Filtro from "./Filtro";
 import carrinho from "../../imgs/carrinho2.png"
+import Carrinho from "./Carrinho/Carrinho";
 
 
 const headers = {
@@ -11,6 +12,7 @@ const headers = {
     }
 }
 
+export let servicesInCart = []
 
 // Disposição na página
 
@@ -91,9 +93,7 @@ const Botao = styled.button`
     color: #FF9933;
     cursor: pointer;
     border: hidden;
-<<<<<<< HEAD
     font-weight: bold;
-=======
     font-weight: 800;
 `
 
@@ -116,19 +116,19 @@ const BotaoCarrinho = styled.button`
     cursor: pointer;
     border: hidden;
     font-weight: 800;
->>>>>>> 7580794c92a95b3783486ffdaec9342e9d93da8e
 `
 
 
 
-export default class Servicos extends React.Component {
-
+export class Servicos extends React.Component {
+    
     state = {
         servicos: [],
         buscar: "",
         precoMin: "",
         precoMax: "",
-        ordenacao: ""
+        ordenacao: "",
+        servicesInCart: []
     }
 
     componentDidMount () {
@@ -174,7 +174,35 @@ export default class Servicos extends React.Component {
         })
     }
 
-    render() {        
+    addToCart = (serviceId) => {
+        const serviceInCart = this.state.servicesInCart.find(servico => serviceId === servico.id)
+
+        if (serviceInCart) {
+            const newServicesInCart = this.state.servicesInCart.map((servico) => {
+                if (serviceId === servico.id) {
+                    return {
+                        ...servico, 
+                        itens: servico.itens + 1
+                    }
+                }
+                return servico
+            })
+            this.setState({
+                servicesInCart: newServicesInCart
+            })
+        }
+        else {
+            const serviceToAdd = this.state.servicos.find(servico => serviceId === servico.id)
+
+            const newServicesInCart = [...this.state.servicesInCart, {...serviceToAdd, itens: 1}]
+            this.setState({
+                servicesInCart: newServicesInCart
+            })
+        }
+    }
+    
+    render() {    
+        servicesInCart = this.state.servicesInCart
         return (
             <Escopo>
 
@@ -243,7 +271,8 @@ export default class Servicos extends React.Component {
                             // Precisa arrumar, pois transforma o dia para um dia anterior.
                             let dataFormatada = (adicionaZero(data.getDate())) + "/" + (adicionaZero(data.getMonth() + 1)) + "/" + data.getFullYear(); 
                             return (
-                                <Cards key={servico.id}>
+                                <Cards 
+                                key={servico.id}>
                                     <h3>{servico.title}</h3>
                                     <p>
                                         <b>Preço:</b>
@@ -254,7 +283,7 @@ export default class Servicos extends React.Component {
                                         {servico.dueDate}
                                     </p>
                                     <Botao>Ver Detalhes</Botao>
-                                    <BotaoCarrinho><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
+                                    <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )
                         })            
@@ -266,3 +295,5 @@ export default class Servicos extends React.Component {
         )
     } 
 }
+
+export default {Servicos, servicesInCart}

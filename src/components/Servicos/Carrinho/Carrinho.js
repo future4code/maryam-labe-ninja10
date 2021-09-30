@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { servicesInCart } from '../Servicos'
 
 const CarrinhoContainer = styled.div`
     border-radius: 10px;
@@ -59,27 +60,33 @@ const ContainerCima = styled.div`
 const FundoCarrinho = styled.div`
     background-color: #F5F6FA;
 `
-export default class Servicos extends React.Component {
+export default class Carrinho extends React.Component {
+    state = {
+        cart: servicesInCart
+    }
     render() {
         return (
             <FundoCarrinho> 
                 <ContainerCima>
-                    <CarrinhoContainer>
-                        <CardCarrinhoContainer>
-                            <h2>Web Developer</h2><li><b>Preço:<b>
-                            </b> R$ 1200.00</b></li>
-                        </CardCarrinhoContainer>
-                        <BotaoCarrinho>
-                            <button> Remover</button>
-                            
-                        </BotaoCarrinho>
-                    </CarrinhoContainer>
-                    <SomaContainer>
+                        {this.state.cart.map((servico) => {
+                            return (
+                                <CarrinhoContainer>
+                                    <CardCarrinhoContainer>
+                                        <h2>{servico.title}</h2><li><b>Preço:<b>
+                                        </b> R$ {servico.price}</b></li>
+                                    </CardCarrinhoContainer>
+                                    <BotaoCarrinho>
+                                        <button> Remover</button>
+                                    </BotaoCarrinho>
+                                </CarrinhoContainer>
+                            )
+                        })}
+                    {/* <SomaContainer>
                         <h2>Web Developer</h2><b>Preço:<b>
                         </b> R$ 1200.00</b><br></br>
                         <p>Total:</p>
                         <button> Finalizar Compra</button><br></br>
-                    </SomaContainer>
+                    </SomaContainer> */}
                 </ContainerCima>
                 <VoltarContainer>
                     <button onClick={() => this.props.changePage("servicos")}>Voltar para Lista</button>
