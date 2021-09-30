@@ -1,27 +1,39 @@
 import React from "react";
 import styled from "styled-components";
+import filtro from "../../imgs/filtro.png"
 
 // Filtros
 
 const ContainerFiltro = styled.div `
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 240px;
     background-color: #FF9933;
     color: white;
     align-items: center;
     padding: 25px;
+    margin-right: 70px;
     input {
-        width: 300px;
-        margin-bottom: 10px;
+        width: 180px;
+        margin-top: 40px;
+        border-radius: 20px;
+        height: 25px;
+        cursor: pointer;
+        color: #FF9933;
+        font-weight: 800;
+        padding: 2px 15px;
+        cursor: pointer;
         
     }
+
 `
 
 function Filtro (props) {
     return (
         <div>
             <ContainerFiltro>
-                    <h1>Filtro</h1>
+                    <img src={filtro} alt="filtro imagem" />
                     <input placeholder="Preço Mínimo" type="number" value={props.precoMin} onChange={props.updatePrecoMin} min="0" max="infinite"/>
                     <input placeholder="Preço Máximo" type="number" value={props.precoMax} onChange={props.updatePrecoMax} min="0" max="infinite"/>
             </ContainerFiltro>
