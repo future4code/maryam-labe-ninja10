@@ -8,9 +8,10 @@ const headers = {
     }
 }
 
+
 const ContainerPageRegister = styled.div `
     background-color: #FF9933;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
