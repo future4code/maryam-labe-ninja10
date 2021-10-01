@@ -6,15 +6,15 @@ const CarrinhoContainer = styled.div`
     border-radius: 10px;
     background-color: #FF9933;
     padding: 0px 16px 16px;
-    margin: 100px;
+    margin: 30px;
     width: 300px;
     height: 200px;
     text-align: center;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
 `
 const BotaoCarrinho = styled.div`
     display: flex;
@@ -42,6 +42,11 @@ const VoltarContainer = styled.div`
 
 
 `
+const ServicesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 const SomaContainer = styled.div`
     justify-content: left;
     border-radius: 30px;
@@ -54,7 +59,7 @@ const SomaContainer = styled.div`
     border-radius: 10px;
 `
 const ContainerCima = styled.div`
-    display: flex;
+    display: flex;  
 
 `
 const FundoCarrinho = styled.div`
@@ -64,29 +69,54 @@ export default class Carrinho extends React.Component {
     state = {
         cart: servicesInCart
     }
+
+    removeServiceCart = (serviceId) => {
+        if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
+            const newServicesInCart = this.state.cart.map((servico) => {
+                if (serviceId === servico.id) {
+                    return {
+                        ...servico, 
+                        itens: servico.itens -1
+                    }
+                }
+                return servico
+            })
+            .filter((servico) => {
+                return (servico.itens > 0)
+            })
+    
+            this.setState({
+                cart: newServicesInCart
+            })
+            alert(`O item foi deletado do carrinho.`)
+        }
+    }
+
     render() {
         return (
             <FundoCarrinho> 
                 <ContainerCima>
+                    <ServicesContainer>
                         {this.state.cart.map((servico) => {
                             return (
-                                <CarrinhoContainer>
+                                <CarrinhoContainer key={servico.id}>
                                     <CardCarrinhoContainer>
                                         <h2>{servico.title}</h2><li><b>Preço:<b>
                                         </b> R$ {servico.price}</b></li>
                                     </CardCarrinhoContainer>
                                     <BotaoCarrinho>
-                                        <button> Remover</button>
+                                        <button onClick={() => this.removeServiceCart(servico.id)}> Remover</button>
                                     </BotaoCarrinho>
                                 </CarrinhoContainer>
                             )
                         })}
-                    {/* <SomaContainer>
+                    </ServicesContainer>
+                    <SomaContainer>
                         <h2>Web Developer</h2><b>Preço:<b>
                         </b> R$ 1200.00</b><br></br>
                         <p>Total:</p>
                         <button> Finalizar Compra</button><br></br>
-                    </SomaContainer> */}
+                    </SomaContainer>
                 </ContainerCima>
                 <VoltarContainer>
                     <button onClick={() => this.props.changePage("servicos")}>Voltar para Lista</button>
