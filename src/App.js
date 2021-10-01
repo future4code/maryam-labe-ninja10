@@ -1,5 +1,6 @@
 import React from "react";
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
 import { Servicos } from './components/Servicos/Servicos';
@@ -44,6 +45,8 @@ export default class App extends React.Component {
 			<div>
 				<Header changePage={this.changePage} />
 				{renderCurrentPage()}
+				<Footer changePage={this.changePage} />
+				
 			</div>
 		)
 	}

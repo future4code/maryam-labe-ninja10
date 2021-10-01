@@ -18,6 +18,8 @@ export let servicesInCart = []
 
 const Escopo = styled.div`
     display: flex; 
+    flex-grow: inherit;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 
 const ContainerGlobal = styled.div`
@@ -42,6 +44,8 @@ const ContainerPesquisa = styled.div`
         font-weight: 800;
         padding: 2px 35px;
         cursor: pointer;
+        -webkit-box-shadow: 5px 6px #727D71;
+        border: 1px solid gray;
     }
 
     select {
@@ -53,6 +57,8 @@ const ContainerPesquisa = styled.div`
         font-weight: 800;
         padding: 2px 35px;
         cursor: pointer;
+        -webkit-box-shadow: 5px 6px #727D71;
+        border: 1px solid gray;
     }
 `
 
@@ -70,14 +76,27 @@ const Cards = styled.div`
     background-color: #FF9933;
     width: 280px;
     margin: 10px;
-    text-align: center;
     border-radius: 25px;
     color: black;
-    font-weight: 800;
 
 `
 
-const Botao = styled.button`
+const CardWhite = styled.div`
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        padding-top: 15px;
+    }
+`
+
+const BotaoDetalhes = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +107,8 @@ const Botao = styled.button`
     width: 200px;
     height: 25px;
     
+    -webkit-box-shadow: 3px 4px #727D71;
+	border: none;
     border-radius: 10px;
     background-color: white;
     color: #FF9933;
@@ -275,16 +296,18 @@ export class Servicos extends React.Component {
                             return (
                                 <Cards 
                                 key={servico.id}>
-                                    <h3>{servico.title}</h3>
-                                    <p>
-                                        <b>Preço:</b>
-                                        R$ {servico.price}
-                                    </p>
-                                    <p>
-                                        <b>Prazo:</b>
-                                        {servico.dueDate}
-                                    </p>
-                                    <Botao onClick={() => this.props.goToDetailPage(servico.id)}>Ver Detalhes</Botao>
+                                    <CardWhite>
+                                        <h3>{servico.title}</h3>
+                                        <p>
+                                            <b>Preço:</b>
+                                            R$ {servico.price}
+                                        </p>
+                                        <p>
+                                            <b>Prazo:</b>
+                                            {servico.dueDate}
+                                        </p>
+                                    </CardWhite>
+                                    <BotaoDetalhes onClick={() => this.props.goToDetailPage(servico.id)}>Ver Detalhes</BotaoDetalhes>
                                     <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )

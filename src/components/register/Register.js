@@ -11,10 +11,11 @@ const headers = {
 
 const ContainerPageRegister = styled.div `
     background-color: #FF9933;
-    height: 80vh;
+    height: 120vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 
 const ContainerRegister = styled.div `
@@ -24,12 +25,22 @@ const ContainerRegister = styled.div `
     flex-direction: column;
     align-items: center;
     width: 500px;
-    height: 440px;
-    box-shadow: 4px 4px 3px 3px #a25922;
+    height: 600px;
+    box-shadow: 8px 10px 3px 3px #a25922;
 
     button {
-        margin-top: 10px;
-    }
+        margin-top: 15px;
+        border-radius: 40px;
+        background-color: #FF9933;
+        color: white;
+        cursor: pointer;
+        border: hidden;
+        height: 30px;
+        width: 200px;
+        font-weight: 800;
+        font-size: medium;
+        -webkit-box-shadow: 3px 4px #727D71;
+        }
 `
 
 const ContainerForm = styled.div `
@@ -39,6 +50,13 @@ const ContainerForm = styled.div `
     
     input {
         margin-top: 10px;
+        width: 200px;
+        height: 24px;
+        border-radius: 20px;
+        color: #FF9933;
+        font-weight: 800;
+        padding: 2px 35px;
+        cursor: pointer;
     }
 
 `
@@ -53,8 +71,15 @@ const InputDate = styled.input `
 const LabelPagamentos = styled.label `
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
+    color: #FF9933;
+    font-weight: 800;
+    cursor: pointer;
+    h3{
+        align-items: center;
+        margin-left: 80px;
+    }
 `
 
 class Register extends React.Component {
@@ -187,7 +212,8 @@ class Register extends React.Component {
                             <Inputs type="number" id="preco" name="preco" placeholder="Preço" min="0" 
                             value={this.state.preco} onChange={this.onChangePreco}/>
                         </label>
-                        <LabelPagamentos>Formas de Pagamento:
+                        <LabelPagamentos>
+                            <h3>Formas de Pagamento:</h3>
                             {checkBoxesPagamento}
                         </LabelPagamentos>
                     </ContainerForm>

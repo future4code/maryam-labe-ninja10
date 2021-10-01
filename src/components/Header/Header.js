@@ -11,6 +11,7 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     height: 100px;
     align-items: center;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 
 const LogoAndTitleContainer = styled.span`
@@ -19,18 +20,42 @@ const LogoAndTitleContainer = styled.span`
     width: 200px;
     align-items: center;
     color: white;
+    
 `
 
 const ButtonsContainer = styled.span`
     display: flex;
     justify-content: space-around;
+    padding: 100px;
     width: 200px;
     align-items: center;
 `
 
+const ButtonHome = styled.button`
+    margin-right: 120px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: hidden;
+    font-weight: 800;
+    font-size: larger;
+    
+`
+const ButtonCart = styled.button`
+    margin-right: 220px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: hidden;
+    font-weight: 800;
+    font-size: larger;
+    
+`
+
 const LogoCaixa = styled.img`
     width: 50px;
-    margin-left: 15px;
+    margin-left: 220px;
+    cursor: pointer;
     
 `
 
@@ -46,12 +71,12 @@ export default function Header(props) {
     return (
         <HeaderContainer>
             <LogoAndTitleContainer>
-                <LogoCaixa src={logo} alt='logo'/>
+                <LogoCaixa src={logo} alt='logo' onClick={() => props.changePage("home")}/>
                 <LogoNome src={logoNome} alt='nome da empresa' />
             </LogoAndTitleContainer>
             <ButtonsContainer>
-                <button onClick={() => props.changePage("home")}>Home</button>
-                <button onClick={() => props.changePage("carrinho")}>Carrinho</button>
+                <ButtonHome onClick={() => props.changePage("home")}>Home</ButtonHome>
+                <ButtonCart onClick={() => props.changePage("carrinho")}>Carrinho</ButtonCart>
             </ButtonsContainer>
         </HeaderContainer>
     )
