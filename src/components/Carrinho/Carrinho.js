@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { servicesInCart } from '../Servicos/Servicos'
 
+export let cart = []
+
 const CarrinhoContainer = styled.div`
     border-radius: 10px;
     background-color: #FF9933;
@@ -65,7 +67,7 @@ const ContainerCima = styled.div`
 const FundoCarrinho = styled.div`
     background-color: #F5F6FA;
 `
-export default class Carrinho extends React.Component {
+export class Carrinho extends React.Component {
     state = {
         cart: servicesInCart
     }
@@ -110,6 +112,8 @@ export default class Carrinho extends React.Component {
     }
 
     render() {
+        cart = this.state.cart
+
         return (
             <FundoCarrinho> 
                 <ContainerCima>
@@ -141,3 +145,5 @@ export default class Carrinho extends React.Component {
         )
     }
 }
+
+export default {Carrinho, cart}

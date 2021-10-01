@@ -4,9 +4,10 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
 import { Servicos } from './components/Servicos/Servicos';
-import Carrinho from './components/Carrinho/Carrinho';
+import { Carrinho } from './components/Carrinho/Carrinho';
 import DetalhesServicos from './components/Servicos/DetalhesServicos';
 import GlobalStyle from './styles/Global'
+
 
 
 
@@ -18,7 +19,9 @@ export default class App extends React.Component {
 	}
 
 	changePage = (currentPage) => {
-		this.setState({ currentPage: currentPage })
+		this.setState({
+			currentPage: currentPage
+		})
 	}
 
 	goToDetailPage = (id) => {
@@ -40,6 +43,8 @@ export default class App extends React.Component {
 					return <Register />
 				case 'detalhes':
 					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} />
+				default:
+					return <Home changePage={this.changePage}/>
 			}
 		}
 
