@@ -168,6 +168,7 @@ class Register extends React.Component {
                     preco: "",
                     pagamentoSelecionado: []
                 }
+                //TALVEZ COLOCAR A FUNÇÃO DE LIMPAR CHECKBOX AQUI?!
             )
         })
         .catch((err) => {

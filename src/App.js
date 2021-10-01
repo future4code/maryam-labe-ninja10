@@ -3,17 +3,24 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
-import Servicos from './components/Servicos/Servicos';
-import Carrinho from './components/Carrinho/Carrinho';
+import { Servicos } from './components/Servicos/Servicos';
+import Carrinho from './components/Servicos/Carrinho/Carrinho';
+import DetalhesServicos from './components/Servicos/DetalhesServicos';
 
 
 export default class App extends React.Component {
 	state = {
-		currentPage: 'home'
+		currentPage: 'home',
+		servicoClicado: ""
 	}
 
 	changePage = (currentPage) => {
 		this.setState({ currentPage: currentPage })
+	}
+
+	goToDetailPage = (id) => {
+		this.setState({ currentPage: 'detalhes', servicoClicado: id })
+		console.log(id)
 	}
 
 	render() {
@@ -23,11 +30,13 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho changePage={this.changePage}/>
+					return <Carrinho servicesInCart={this.state.servicesInCart} changePage={this.changePage} />
 				case 'servicos':
-					return <Servicos />
+					return <Servicos goToDetailPage={this.goToDetailPage} />
 				case 'register':
 					return <Register />
+				case 'detalhes':
+					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado}/>
 			}
 		}
 
