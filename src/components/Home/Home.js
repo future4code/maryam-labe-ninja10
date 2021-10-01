@@ -87,9 +87,9 @@ const ButtonClient = styled.button`
     height: 50px;
     margin-bottom: 20px;
     
+    border-radius: 40px;
     -webkit-box-shadow: 5px 6px #727D71;
 	border: none;
-    border-radius: 40px;
     background-color: white;
     color: #FF9933;
     cursor: pointer;

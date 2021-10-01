@@ -20,6 +20,7 @@ const Escopo = styled.div`
     display: flex; 
     flex-grow: inherit;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #F5F6FA;
 `
 
 const ContainerGlobal = styled.div`
@@ -78,22 +79,24 @@ const Cards = styled.div`
     margin: 10px;
     border-radius: 25px;
     color: black;
+    box-shadow: 3px 5px 3px 3px #727D71;
 
 `
 
 const CardWhite = styled.div`
-    border-radius: 10px;
-    background-color: white;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    width: 200px;
+    width: 230px;
     height: 150px;
+    background-color: white;
+    -webkit-box-shadow: 3px 3px #727D71;
+	border: 1px solid gray;
+    border-radius: 10px;
+    
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
     text-align: center;
     justify-content: center;
     align-items: center;
-    h3 {
-        padding-top: 15px;
-    }
 `
 
 const BotaoDetalhes = styled.button`
@@ -105,17 +108,18 @@ const BotaoDetalhes = styled.button`
     margin: 0 auto;
     margin-bottom: 15px;
     width: 200px;
-    height: 25px;
+    height: 30px;
     
     -webkit-box-shadow: 3px 4px #727D71;
 	border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
     color: #FF9933;
     cursor: pointer;
     border: hidden;
     font-weight: bold;
     font-weight: 800;
+
 `
 
 // Botão Adcionar ao Carrinho 

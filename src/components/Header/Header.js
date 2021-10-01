@@ -56,12 +56,12 @@ const LogoCaixa = styled.img`
     width: 50px;
     margin-left: 220px;
     cursor: pointer;
-    
 `
 
 const LogoNome = styled.img`
     width: 110px;
     margin-right: 20px;
+    cursor: pointer;
     
 `
 
@@ -72,7 +72,7 @@ export default function Header(props) {
         <HeaderContainer>
             <LogoAndTitleContainer>
                 <LogoCaixa src={logo} alt='logo' onClick={() => props.changePage("home")}/>
-                <LogoNome src={logoNome} alt='nome da empresa' />
+                <LogoNome src={logoNome} alt='nome da empresa' onClick={() => props.changePage("home")}/>
             </LogoAndTitleContainer>
             <ButtonsContainer>
                 <ButtonHome onClick={() => props.changePage("home")}>Home</ButtonHome>
