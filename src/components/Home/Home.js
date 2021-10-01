@@ -99,7 +99,7 @@ const ButtonClient = styled.button`
 
 // Textos
 
-const Titulos = styled.h2`
+const Titulo1 = styled.h2`
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 30px 0px;
     font-weight: 800;
@@ -109,8 +109,18 @@ const Titulos = styled.h2`
     color: inherit;
     
 `
+const Titulo2 = styled.h2`
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 30px 0px;
+    font-weight: 800;
+    letter-spacing: -0.03em; 
+    font-size: 1.875rem;
+    line-height: 1.00;
+    color: black;
+    
+`
 
-const Paragrafos =styled.p`
+const Paragrafo1 =styled.p`
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 5px 0px 10px;
     font-weight: 500;
@@ -118,6 +128,17 @@ const Paragrafos =styled.p`
     font-size: 1.25rem;
     line-height: 1.20;
     color: inherit;
+    font-weight: 600;
+`
+const Paragrafo2 =styled.p`
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 5px 0px 10px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    font-size: 1.25rem;
+    line-height: 1.20;
+    color: black;
+    font-weight: 600;
 `
 
 
@@ -128,8 +149,8 @@ export default function Home(props) {
             <ContainerService>
                 <Service>
                     <ButtonService onClick={() => props.changePage("servicos")}>Buscar soluções</ButtonService>
-                    <Titulos>NEXUM é conexão_</Titulos>
-                    <Paragrafos>NEXUM é uma plataforma digital que conecta nossos clientes à soluções, oferecendo serviços e atendimento para resolver o seu dia a dia.</Paragrafos>
+                    <Titulo1>NEXUM é conexão_</Titulo1>
+                    <Paragrafo1>NEXUM é uma plataforma digital que conecta nossos clientes à soluções, oferecendo serviços e atendimento para resolver o seu dia a dia.</Paragrafo1>
                 </Service>
                     
                 <Imagem1 src={fotoHome} alt='Pessoas trabalhando'/>
@@ -141,8 +162,8 @@ export default function Home(props) {
 
                 <Cadastrar>
                     <ButtonClient onClick={() => props.changePage("register")}>Cadastre seu serviço</ButtonClient>
-                    <Titulos>Faça parte da Solução_</Titulos>
-                    <Paragrafos>Contribuímos de forma que seu serviço seja potencializado com mais visibilidade e agilidade para melhores resultados.</Paragrafos>
+                    <Titulo2>Faça parte da Solução_</Titulo2>
+                    <Paragrafo2>Contribuímos de forma que seu serviço seja potencializado com mais visibilidade e agilidade para melhores resultados.</Paragrafo2>
                 </Cadastrar>
             </ContainerCadastro>
         
