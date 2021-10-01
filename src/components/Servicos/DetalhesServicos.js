@@ -30,12 +30,19 @@ const Cardes = styled.div`
     
 `
 
+const ContainerPage = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+`
 
 
-export default class Servicos extends React.Component {
+
+export default class DetalhesServicos extends React.Component {
     render() {
         return (
-            <div>
+            <ContainerPage>
                 <DetalhesServicosContainer/>
                 <Cardes>
                 <h2>Web Developer</h2> <br></br>
@@ -46,10 +53,10 @@ export default class Servicos extends React.Component {
                     <b>Preço:<b>
                     </b> R$ 1200.00</b> <br></br>
                 <BotoesContainer>
-                <button>Voltar para Lista</button>
+                <button onClick={() => this.props.changePage('servicos')}>Voltar para Lista</button>
                 </BotoesContainer>
                 </Cardes>
-            </div>
+            </ContainerPage>
         )
     }
 }

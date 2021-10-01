@@ -199,6 +199,7 @@ export class Servicos extends React.Component {
                 servicesInCart: newServicesInCart
             })
         }
+        alert('Seu produto foi adicionado ao carrinho')
     }
     
     render() {    
@@ -282,7 +283,7 @@ export class Servicos extends React.Component {
                                         <b>Prazo:</b>
                                         {servico.dueDate}
                                     </p>
-                                    <Botao>Ver Detalhes</Botao>
+                                    <Botao onClick={() => this.props.changePage('detalhes')}>Ver Detalhes</Botao>
                                     <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )
