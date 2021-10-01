@@ -34,7 +34,7 @@ const LogoCaixa = styled.img`
 const LogoNome = styled.img`
     width: 110px;
     margin-right: 20px;
-    
+    cursor: pointer;
 `
 
 
@@ -44,7 +44,7 @@ export default function Footer(props) {
         <FooterContainer>
             <LogoAndTitleContainer>
                 <LogoCaixa src={logo} alt='logo' onClick={() => props.changePage("home")}/>
-                <LogoNome src={logoNome} alt='nome da empresa' />
+                <LogoNome src={logoNome} alt='nome da empresa' onClick={() => props.changePage("home")} />
             </LogoAndTitleContainer>
         </FooterContainer>
     )

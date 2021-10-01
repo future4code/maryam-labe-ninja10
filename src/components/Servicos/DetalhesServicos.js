@@ -4,40 +4,93 @@ import styled from "styled-components";
 import { servicesInCart } from "./Servicos";
 
 
-const DetalhesServicosContainer= styled.div`
-    font-size: 10em;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    margin-right: 10px;
-    
-`
-
-const BotoesContainer = styled.div`
-    justify-content: center;
-    width: 350px;
-    align-items: center;
-    font-size: 2em;
-    padding: 40px 20px;
-    margin-right: 5px;
-`
-const Cardes = styled.div`
-    border-radius: 30px;
-    background-color: #FF9933;
-    padding: 0px 16px 16px;
-    margin: 10px;
-    width: 400px;
-    height: 400px;
-    text-align: center;
-    
-`
+// Container Background
 
 const ContainerPage = styled.div`
     display: flex;
+    flex-direction: column;
+    background-color: #F5F6FA;
     align-items: center;
     justify-content: center;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+`
+
+const DetalhesServicosContainer= styled.div`
+    font-size: 10em;
+    border: none;
+    margin-top: 10px;
+    height: 100%;
+
+`
+
+
+// Container Cartão Descrição
+
+const Cardes = styled.div`
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    width: 400px;
+    height: 200px;
+    -webkit-box-shadow: 6px 8px #727D71;
+	border: 1px solid gray;
+    background-color: white;
+
+`
+
+const Descricao = styled.div`
+    color: black;
+    font-weight: 600;
+    font-size: medium;
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+`
+
+
+// Botões página
+
+const BotoesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    margin-bottom: 30px;
+`
+
+const Botão1 = styled.button`
+    width: 250px;
+    height: 40px;
+    background-color: #FF9933;
+    color: white;
+
+    font-size: medium;
+    font-weight: 800;
+    
+    border: hidden;
+    border-radius: 20px;
+    -webkit-box-shadow: 3px 5px #727D71;
+    cursor: pointer;
+
+`
+
+const Botão2 = styled.button`
+    margin-top: 35px;
+    width: 180px;
+    height: 33px;
+    background-color: white;
+    color: #FF9933;
+
+    font-size: small;
+    font-weight: 800;
+
+	border: none;
+    border-radius: 20px;
+    border: 1px solid gray;
+    -webkit-box-shadow: 3px 4px #727D71;
+    cursor: pointer;
+
 `
 
 
@@ -99,16 +152,18 @@ export default class DetalhesServicos extends React.Component {
         return (
             <ContainerPage>
                 <DetalhesServicosContainer/>
-                <Cardes>
-                <h2>{this.state.servico.title}</h2> <br></br>
-                <p>{this.state.servico.description}</p>
-                <p>Prazo: {this.state.servico.dueDate}</p>
-                <p>Preço: R$ {this.state.servico.price}</p>
-                <BotoesContainer>
-                <button onClick={() => this.props.changePage('servicos')}>Voltar para Lista</button>
-                <button /*</BotoesContainer>onClick={() => this.addToCart(this.props.id)}*/>Adicionar ao carrinho</button>
-                </BotoesContainer>
-                </Cardes>
+                    <Cardes>
+                        <Descricao>
+                            <h2>{this.state.servico.title}</h2>
+                            <h3>{this.state.servico.description}</h3>
+                            <p>Prazo: {this.state.servico.dueDate}</p>
+                            <p>Preço: R$ {this.state.servico.price}</p>
+                        </Descricao>
+                    </Cardes>
+                    <BotoesContainer>
+                            <Botão1 /*</BotoesContainer>onClick={() => this.addToCart(this.props.id)}*/>Adicionar ao carrinho</Botão1>
+                            <Botão2 onClick={() => this.props.changePage('servicos')}>Voltar para Lista</Botão2>
+                    </BotoesContainer>
             </ContainerPage>
         )
     }
