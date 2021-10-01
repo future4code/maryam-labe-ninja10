@@ -168,7 +168,6 @@ export class Servicos extends React.Component {
             this.setState({
                 servicos: res.data.jobs
             })
-            console.log(res.data.jobs)
         })
         .catch((err) => {
             alert(err)
@@ -277,7 +276,7 @@ export class Servicos extends React.Component {
                                 case "titulo":
                                     let a = atualServico.title.toUpperCase()
                                     let b = proximoServico.title.toUpperCase();
-                                    return a == b ? 0 : a > b ? 1 : -1;
+                                    return a === b ? 0 : a > b ? 1 : -1;
                                 case "prazo":
                                     let c = new Date(atualServico.dueDate)     
                                     let d = new Date(proximoServico.dueDate);
