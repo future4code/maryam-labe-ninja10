@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Filtro from "./Filtro";
 import carrinho from "../../imgs/carrinho2.png"
 import Carrinho from "./Carrinho/Carrinho";
+import moment from "moment";
 
 
 const headers = {
@@ -230,6 +231,7 @@ export class Servicos extends React.Component {
     
     render() {    
         servicesInCart = this.state.servicesInCart
+        
         return (
             <Escopo>
 
@@ -287,16 +289,10 @@ export class Servicos extends React.Component {
                             }
                         })
                         .map((servico) => {
-                            function adicionaZero(numero) {
-                                if (numero <= 9) {
-                                    return "0" + numero
-                                } else {
-                                    return numero
-                                }
-                            }
-                            let data = new Date(servico.dueDate);
-                            // Precisa arrumar, pois transforma o dia para um dia anterior.
-                            let dataFormatada = (adicionaZero(data.getDate())) + "/" + (adicionaZero(data.getMonth() + 1)) + "/" + data.getFullYear(); 
+                            let data = Date.parse(servico.dueDate);
+                            const moment = require('moment-timezone');
+                            let dataFormatada = moment(data).tz('Atlantic/St_Helena').format('DD/MM/YYYY')
+                            let precoFormatado = servico.price.toLocaleString('pt-BR')
                             return (
                                 <Cards 
                                 key={servico.id}>
@@ -304,11 +300,11 @@ export class Servicos extends React.Component {
                                         <h3>{servico.title}</h3>
                                         <p>
                                             <b>Preço: </b>
-                                            R$ {servico.price}
+                                            R$ {precoFormatado}
                                         </p>
                                         <p>
                                             <b>Prazo: </b>
-                                            {dataFormatada} 
+                                            {dataFormatada}
                                             
                                         </p>
                                     </CardWhite>
