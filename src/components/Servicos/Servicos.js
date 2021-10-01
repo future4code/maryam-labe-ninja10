@@ -200,7 +200,6 @@ export class Servicos extends React.Component {
             })
         }
         alert('Seu produto foi adicionado ao carrinho')
-        console.log(this.state.servicesInCart)
     }
     
     render() {    
