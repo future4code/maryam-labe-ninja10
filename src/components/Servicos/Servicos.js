@@ -3,10 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Filtro from "./Filtro";
 import carrinho from "../../imgs/carrinho2.png"
-import Carrinho from "./Carrinho/Carrinho";
 import moment from "moment";
-
-
 
 const headers = {
     headers: {
