@@ -144,6 +144,7 @@ export class Servicos extends React.Component {
             this.setState({
                 servicos: res.data.jobs
             })
+            console.log(res.data.jobs)
         })
         .catch((err) => {
             alert(err)
@@ -283,7 +284,7 @@ export class Servicos extends React.Component {
                                         <b>Prazo:</b>
                                         {servico.dueDate}
                                     </p>
-                                    <Botao onClick={() => this.props.changePage('detalhes')}>Ver Detalhes</Botao>
+                                    <Botao onClick={() => this.props.goToDetailPage(servico.id)}>Ver Detalhes</Botao>
                                     <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )
