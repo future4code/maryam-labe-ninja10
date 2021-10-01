@@ -17,7 +17,7 @@ const ContainerBackground = styled.div`
 const ContainerService = styled.div`
     display: flex;
     flex-direction: row;
-    margin-bottom: 114px;
+    margin-bottom: 108px;
 `
 
 const Service = styled.span`
