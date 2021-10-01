@@ -24,6 +24,7 @@ const ContainerFiltro = styled.div `
         font-weight: 800;
         padding: 2px 15px;
         cursor: pointer;
+        box-shadow: 3px 4px 3px #a25922;
         
     }
 

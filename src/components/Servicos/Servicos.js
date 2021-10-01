@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import Filtro from "./Filtro";
 import carrinho from "../../imgs/carrinho2.png"
-import Carrinho from "./Carrinho/Carrinho";
 
 
 const headers = {
@@ -45,7 +44,7 @@ const ContainerPesquisa = styled.div`
         font-weight: 800;
         padding: 2px 35px;
         cursor: pointer;
-        -webkit-box-shadow: 5px 6px #727D71;
+        box-shadow: 4px 5px 3px #727D71;
         border: 1px solid gray;
     }
 
@@ -58,7 +57,7 @@ const ContainerPesquisa = styled.div`
         font-weight: 800;
         padding: 2px 35px;
         cursor: pointer;
-        -webkit-box-shadow: 5px 6px #727D71;
+        box-shadow: 4px 5px 3px #727D71;
         border: 1px solid gray;
     }
 `
@@ -87,7 +86,7 @@ const CardWhite = styled.div`
     width: 230px;
     height: 150px;
     background-color: white;
-    -webkit-box-shadow: 3px 3px #727D71;
+    box-shadow: 4px 5px 3px #a25922;
 	border: 1px solid gray;
     border-radius: 10px;
     
@@ -110,7 +109,7 @@ const BotaoDetalhes = styled.button`
     width: 200px;
     height: 30px;
     
-    -webkit-box-shadow: 3px 4px #727D71;
+    box-shadow: 3px 5px 3px #a25922;
 	border: none;
     border-radius: 20px;
     background-color: white;

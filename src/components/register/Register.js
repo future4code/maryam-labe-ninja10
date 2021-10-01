@@ -28,6 +28,10 @@ const ContainerRegister = styled.div`
     height: 600px;
     box-shadow: 8px 10px 3px 3px #a25922;
 
+    h2 {
+        margin-top: 30px;
+    }
+
     button {
         margin-top: 15px;
         border-radius: 40px;
@@ -39,7 +43,7 @@ const ContainerRegister = styled.div`
         width: 200px;
         font-weight: 800;
         font-size: medium;
-        -webkit-box-shadow: 3px 4px #727D71;
+        box-shadow: 3px 4px 3px #727D71;
         }
 `
 
@@ -47,25 +51,17 @@ const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    input {
-        margin-top: 10px;
-        width: 200px;
-        height: 24px;
-        border-radius: 20px;
-        color: #FF9933;
-        font-weight: 800;
-        padding: 2px 35px;
-        cursor: pointer;
-    }
 
 `
-const Inputs = styled.input`
-    width: 266px;
-`
-
-const InputDate = styled.input`
-    width: 268px;
+const AllInputs = styled.input`
+    margin-top: 10px;
+    width: 200px;
+    height: 24px;
+    border-radius: 20px;
+    color: #FF9933;
+    font-weight: 800;
+    padding: 2px 35px;
+    cursor: pointer;
 `
 
 const LabelPagamentos = styled.label`
@@ -74,11 +70,26 @@ const LabelPagamentos = styled.label`
     margin-top: 5px;
     margin-bottom: 10px;
     color: #FF9933;
-    font-weight: 800;
+    font-weight: 600;
     cursor: pointer;
     h3{
         align-items: center;
-        margin-left: 80px;
+        font-weight: 800;
+    }
+`
+
+const Checkbox = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    input {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        margin-left: 20px;
     }
 `
 
@@ -185,12 +196,14 @@ class Register extends React.Component {
         const checkBoxesPagamento = this.state.formasDePagamentos.map((pagamento) => {
             return (
                 <label key={pagamento.id}>
-                    <input type="checkbox"
-                        name="metodo"
-                        onChange={() => this.onChangePagamento(pagamento.name)}
-                        selected={this.state.pagamentoSelecionado.includes(pagamento.name)}
-                    ></input>
-                    <span>{pagamento.name}</span>
+                    <Checkbox>
+                        <input type="checkbox"
+                            name="metodo"
+                            onChange={() => this.onChangePagamento(pagamento.name)}
+                            selected={this.state.pagamentoSelecionado.includes(pagamento.name)}
+                        ></input>
+                        <span>{pagamento.name}</span>
+                    </Checkbox>
                 </label>
             )
         })
@@ -200,21 +213,21 @@ class Register extends React.Component {
                     <h2>Cadastre o seu serviço</h2>
                     <ContainerForm>
                         <label htmlFor="servico">
-                            <Inputs
+                            <AllInputs
                                 type="text" id="servico" name="servico" placeholder="Título"
                                 value={this.state.servico} onChange={this.onChangeServico} />
                         </label>
                         <label htmlFor="descricao">
-                            <Inputs
+                            <AllInputs
                                 type="text" id="descricao" name="descricao" placeholder="Descrição"
                                 value={this.state.descricao} onChange={this.onChangeDescricao} />
                         </label>
                         <label htmlFor="prazo">
-                            <InputDate type="date" id="prazo" name="prazo"
+                            <AllInputs type="date" id="prazo" name="prazo"
                                 value={this.state.prazo} onChange={this.onChangePrazo} />
                         </label>
                         <label htmlFor="preco">
-                            <Inputs type="number" id="preco" name="preco" placeholder="Preço" min="0"
+                            <AllInputs type="number" id="preco" name="preco" placeholder="Preço" min="0"
                                 value={this.state.preco} onChange={this.onChangePreco} />
                         </label>
                         <LabelPagamentos>

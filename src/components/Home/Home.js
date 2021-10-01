@@ -10,6 +10,10 @@ const ContainerBackground = styled.div`
     background-image: url(${fundo});
     background-size: cover;
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 // Main 
@@ -26,9 +30,7 @@ const Service = styled.span`
     align-items: center;
     width: 400px;
     padding: 30px 10px;
-    margin-left: 150px;
     margin-top: 50px;
-
 `
 
 const Imagem1 = styled.img`
@@ -59,7 +61,6 @@ const Imagem2 = styled.img`
         height: 300px;
         border-radius: 20px;
         margin-top: 25px;
-        margin-left: 130px;
 `
 
 
@@ -78,7 +79,7 @@ const ButtonService = styled.button`
     border: hidden;
     font-weight: 800;
     font-size: medium;
-    -webkit-box-shadow: 5px 6px #727D71;
+    box-shadow: 5px 6px 3px #727D71;
 `
 
 const ButtonClient = styled.button`
@@ -88,7 +89,7 @@ const ButtonClient = styled.button`
     margin-bottom: 20px;
     
     border-radius: 40px;
-    -webkit-box-shadow: 5px 6px #727D71;
+    box-shadow: 5px 6px 3px #a25922;
 	border: none;
     background-color: white;
     color: #FF9933;
@@ -145,7 +146,6 @@ const Paragrafo2 =styled.p`
 export default function Home(props) {
     return (
         <ContainerBackground>
-            
             <ContainerService>
                 <Service>
                     <ButtonService onClick={() => props.changePage("servicos")}>Buscar soluções</ButtonService>
@@ -166,7 +166,6 @@ export default function Home(props) {
                     <Paragrafo2>Contribuímos de forma que seu serviço seja potencializado com mais visibilidade e agilidade para melhores resultados.</Paragrafo2>
                 </Cadastrar>
             </ContainerCadastro>
-        
         </ContainerBackground>
         
     )
