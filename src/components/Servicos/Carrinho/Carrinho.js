@@ -70,22 +70,25 @@ export default class Carrinho extends React.Component {
     }
 
     removeServiceCart = (serviceId) => {
-        const newServicesInCart = this.state.cart.map((servico) => {
-            if (serviceId === servico.id) {
-                return {
-                    ...servico, 
-                    itens: servico.itens -1
+        if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
+            const newServicesInCart = this.state.cart.map((servico) => {
+                if (serviceId === servico.id) {
+                    return {
+                        ...servico, 
+                        itens: servico.itens -1
+                    }
                 }
-            }
-            return servico
-        })
-        .filter((servico) => {
-            return (servico.itens > 0)
-        })
-
-        this.setState({
-            cart: newServicesInCart
-        })
+                return servico
+            })
+            .filter((servico) => {
+                return (servico.itens > 0)
+            })
+    
+            this.setState({
+                cart: newServicesInCart
+            })
+            alert(`O item foi deletado do carrinho.`)
+        }
     }
 
     render() {
