@@ -9,7 +9,7 @@ const headers = {
 }
 
 
-const ContainerPageRegister = styled.div `
+const ContainerPageRegister = styled.div`
     background-color: #FF9933;
     height: 120vh;
     display: flex;
@@ -18,7 +18,7 @@ const ContainerPageRegister = styled.div `
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 
-const ContainerRegister = styled.div `
+const ContainerRegister = styled.div`
     background-color: ghostwhite;
     border-radius: 50px;
     display: flex;
@@ -43,7 +43,7 @@ const ContainerRegister = styled.div `
         }
 `
 
-const ContainerForm = styled.div `
+const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,15 +60,15 @@ const ContainerForm = styled.div `
     }
 
 `
-const Inputs = styled.input `
+const Inputs = styled.input`
     width: 266px;
 `
 
-const InputDate = styled.input `
+const InputDate = styled.input`
     width: 268px;
 `
 
-const LabelPagamentos = styled.label `
+const LabelPagamentos = styled.label`
     display: flex;
     flex-direction: column;
     margin-top: 5px;
@@ -112,7 +112,7 @@ class Register extends React.Component {
         ],
         pagamentoSelecionado: []
     }
-    
+
     onChangeServico = (event) => {
         this.setState({
             servico: event.target.value
@@ -137,7 +137,7 @@ class Register extends React.Component {
         let selected = this.state.pagamentoSelecionado
         let find = selected.indexOf(name)
 
-        if(find > -1) {
+        if (find > -1) {
             selected.splice(find, 1)
         } else {
             selected.push(name)
@@ -145,7 +145,7 @@ class Register extends React.Component {
 
         this.setState({ selected })
     }
-    
+
     createJob = () => {
         const url = 'https://labeninjas.herokuapp.com/jobs'
         const body = {
@@ -157,23 +157,27 @@ class Register extends React.Component {
         }
 
         Axios
-        .post(url, body, headers)
-        .then((res) => {
-            alert(`${res.data.message}: ${body.title}`)
-            this.setState(
-                {
-                    servico: "",
-                    descricao: "",
-                    prazo: "",
-                    preco: "",
-                    pagamentoSelecionado: []
+            .post(url, body, headers)
+            .then((res) => {
+                alert(`${res.data.message}: ${body.title}`)
+                this.setState(
+                    {
+                        servico: "",
+                        descricao: "",
+                        prazo: "",
+                        preco: "",
+                        pagamentoSelecionado: []
+                    }
+
+                )
+                let boxes = document.getElementsByName("metodo");
+                for (let i = 0; i < boxes.length; i++) {
+                    boxes[i].checked = false;
                 }
-                //TALVEZ COLOCAR A FUNÇÃO DE LIMPAR CHECKBOX AQUI?!
-            )
-        })
-        .catch((err) => {
-            alert(`${err.response.data.message} ${JSON.stringify(err.response.data.errors)}`)
-        })
+            })
+            .catch((err) => {
+                alert(`${err.response.data.message} ${JSON.stringify(err.response.data.errors)}`)
+            })
     }
 
     render() {
@@ -181,7 +185,8 @@ class Register extends React.Component {
         const checkBoxesPagamento = this.state.formasDePagamentos.map((pagamento) => {
             return (
                 <label key={pagamento.id}>
-                    <input type="checkbox" 
+                    <input type="checkbox"
+                        name="metodo"
                         onChange={() => this.onChangePagamento(pagamento.name)}
                         selected={this.state.pagamentoSelecionado.includes(pagamento.name)}
                     ></input>
@@ -195,22 +200,22 @@ class Register extends React.Component {
                     <h2>Cadastre o seu serviço</h2>
                     <ContainerForm>
                         <label htmlFor="servico">
-                            <Inputs 
-                            type="text" id="servico" name="servico" placeholder="Título" 
-                            value={this.state.servico} onChange={this.onChangeServico}/>
+                            <Inputs
+                                type="text" id="servico" name="servico" placeholder="Título"
+                                value={this.state.servico} onChange={this.onChangeServico} />
                         </label>
                         <label htmlFor="descricao">
-                            <Inputs 
-                            type="text" id="descricao" name="descricao" placeholder="Descrição" 
-                            value={this.state.descricao} onChange={this.onChangeDescricao}/>
+                            <Inputs
+                                type="text" id="descricao" name="descricao" placeholder="Descrição"
+                                value={this.state.descricao} onChange={this.onChangeDescricao} />
                         </label>
                         <label htmlFor="prazo">
-                            <InputDate type="date" id="prazo" name="prazo" 
-                            value={this.state.prazo} onChange={this.onChangePrazo}/>
+                            <InputDate type="date" id="prazo" name="prazo"
+                                value={this.state.prazo} onChange={this.onChangePrazo} />
                         </label>
                         <label htmlFor="preco">
-                            <Inputs type="number" id="preco" name="preco" placeholder="Preço" min="0" 
-                            value={this.state.preco} onChange={this.onChangePreco}/>
+                            <Inputs type="number" id="preco" name="preco" placeholder="Preço" min="0"
+                                value={this.state.preco} onChange={this.onChangePreco} />
                         </label>
                         <LabelPagamentos>
                             <h3>Formas de Pagamento:</h3>
