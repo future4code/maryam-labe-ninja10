@@ -14,6 +14,7 @@ const CarrinhoContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 const BotaoCarrinho = styled.div`
     display: flex;

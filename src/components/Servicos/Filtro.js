@@ -7,7 +7,7 @@ import filtro from "../../imgs/filtro.png"
 const ContainerFiltro = styled.div `
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 240px;
     background-color: #FF9933;
     color: white;
