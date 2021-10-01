@@ -303,12 +303,13 @@ export class Servicos extends React.Component {
                                     <CardWhite>
                                         <h3>{servico.title}</h3>
                                         <p>
-                                            <b>Preço:</b>
+                                            <b>Preço: </b>
                                             R$ {servico.price}
                                         </p>
                                         <p>
-                                            <b>Prazo:</b>
-                                            {servico.dueDate}
+                                            <b>Prazo: </b>
+                                            {dataFormatada} 
+                                            
                                         </p>
                                     </CardWhite>
                                     <BotaoDetalhes onClick={() => this.props.goToDetailPage(servico.id)}>Ver Detalhes</BotaoDetalhes>
