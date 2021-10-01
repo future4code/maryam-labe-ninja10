@@ -10,6 +10,7 @@ import GlobalStyle from './styles/Global'
 
 
 
+
 export default class App extends React.Component {
 	state = {
 		currentPage: 'home',
@@ -38,7 +39,7 @@ export default class App extends React.Component {
 				case 'register':
 					return <Register />
 				case 'detalhes':
-					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado}/>
+					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} />
 			}
 		}
 
