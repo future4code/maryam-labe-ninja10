@@ -5,7 +5,7 @@ import logoNome from '../../imgs/logo-titulobranco-menor.png'
 
 
 
-const FooterContainer = styled.header`
+const FooterContainer = styled.footer`
     background-color: black;
     display: flex;
     justify-content: center;

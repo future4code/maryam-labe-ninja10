@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { servicesInCart } from '../Servicos'
+import { servicesInCart } from '../Servicos/Servicos'
 
 const CarrinhoContainer = styled.div`
     border-radius: 10px;

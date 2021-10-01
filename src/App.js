@@ -4,9 +4,11 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Register from './components/register/Register';
 import { Servicos } from './components/Servicos/Servicos';
-import Carrinho from './components/Servicos/Carrinho/Carrinho';
+import Carrinho from './components/Carrinho/Carrinho';
 import DetalhesServicos from './components/Servicos/DetalhesServicos';
-import { ChakraProvider } from "@chakra-ui/react";
+import GlobalStyle from './styles/Global'
+
+
 
 
 export default class App extends React.Component {
@@ -31,7 +33,7 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho servicesInCart={this.state.servicesInCart} changePage={this.changePage} />
+					return <Carrinho changePage={this.changePage} />
 				case 'servicos':
 					return <Servicos goToDetailPage={this.goToDetailPage} />
 				case 'register':
@@ -44,6 +46,7 @@ export default class App extends React.Component {
 
 		return (
 			<div>
+				<GlobalStyle />
 				<Header changePage={this.changePage} />
 				{renderCurrentPage()}
 				<Footer changePage={this.changePage} />
