@@ -92,6 +92,23 @@ export default class Carrinho extends React.Component {
         }
     }
 
+    totalCart = () => {
+        let totalPrice = 0
+
+        for (let service of this.state.cart) {
+            totalPrice += service.price
+        }
+
+        return totalPrice
+    }
+
+    CompletedCart = () => {
+        alert(`Obrigado por contratar com a gente. Volte sempre!`)
+        this.setState({
+            cart: []
+        })
+    }
+
     render() {
         return (
             <FundoCarrinho> 
@@ -112,10 +129,9 @@ export default class Carrinho extends React.Component {
                         })}
                     </ServicesContainer>
                     <SomaContainer>
-                        <h2>Web Developer</h2><b>Preço:<b>
-                        </b> R$ 1200.00</b><br></br>
-                        <p>Total:</p>
-                        <button> Finalizar Compra</button><br></br>
+                        <h2>Valor Total</h2><b>Preço: <b>
+                        </b> R$ {this.totalCart()}</b><br></br>
+                        <button onClick={this.CompletedCart}> Finalizar Compra</button><br></br>
                     </SomaContainer>
                 </ContainerCima>
                 <VoltarContainer>

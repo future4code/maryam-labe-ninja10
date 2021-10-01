@@ -204,7 +204,7 @@ export class Servicos extends React.Component {
                 if (serviceId === servico.id) {
                     return {
                         ...servico, 
-                        itens: servico.itens + 1
+                        itens: 1
                     }
                 }
                 return servico
