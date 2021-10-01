@@ -6,6 +6,7 @@ import Register from './components/register/Register';
 import { Servicos } from './components/Servicos/Servicos';
 import Carrinho from './components/Servicos/Carrinho/Carrinho';
 import DetalhesServicos from './components/Servicos/DetalhesServicos';
+import { ChakraProvider } from "@chakra-ui/react";
 
 
 export default class App extends React.Component {
@@ -36,7 +37,7 @@ export default class App extends React.Component {
 				case 'register':
 					return <Register />
 				case 'detalhes':
-					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado}/>
+					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} />
 			}
 		}
 
@@ -46,7 +47,6 @@ export default class App extends React.Component {
 				<Header changePage={this.changePage} />
 				{renderCurrentPage()}
 				<Footer changePage={this.changePage} />
-				
 			</div>
 		)
 	}
