@@ -200,6 +200,7 @@ export class Servicos extends React.Component {
             })
         }
         alert('Seu produto foi adicionado ao carrinho')
+        console.log(this.state.servicesInCart)
     }
     
     render() {    
@@ -281,7 +282,8 @@ export class Servicos extends React.Component {
                                     </p>
                                     <p>
                                         <b>Prazo:</b>
-                                        {servico.dueDate}
+                                        {servico.dueDate}<br></br>
+                                        {dataFormatada}
                                     </p>
                                     <Botao onClick={() => this.props.changePage('detalhes')}>Ver Detalhes</Botao>
                                     <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>

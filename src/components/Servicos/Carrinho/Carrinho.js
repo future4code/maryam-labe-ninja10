@@ -64,19 +64,39 @@ export default class Carrinho extends React.Component {
     state = {
         cart: servicesInCart
     }
+
+    removeServiceCart = (serviceId) => {
+        const newServicesInCart = this.state.cart.map((servico) => {
+            if (serviceId === servico.id) {
+                return {
+                    ...servico, 
+                    itens: servico.itens -1
+                }
+            }
+            return servico
+        })
+        .filter((servico) => {
+            return (servico.itens > 0)
+        })
+
+        this.setState({
+            cart: newServicesInCart
+        })
+    }
+
     render() {
         return (
             <FundoCarrinho> 
                 <ContainerCima>
                         {this.state.cart.map((servico) => {
                             return (
-                                <CarrinhoContainer>
+                                <CarrinhoContainer key={servico.id}>
                                     <CardCarrinhoContainer>
                                         <h2>{servico.title}</h2><li><b>Preço:<b>
                                         </b> R$ {servico.price}</b></li>
                                     </CardCarrinhoContainer>
                                     <BotaoCarrinho>
-                                        <button> Remover</button>
+                                        <button onClick={() => this.removeServiceCart(servico.id)}> Remover</button>
                                     </BotaoCarrinho>
                                 </CarrinhoContainer>
                             )
