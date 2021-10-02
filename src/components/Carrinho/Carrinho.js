@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { servicesInCart } from '../Servicos/Servicos'
 import lixeira from "../../imgs/lixeira1.png"
+import emptyCart from '../../imgs/empty-cart.svg'
 
 // Background Carrinho
 
@@ -25,8 +25,6 @@ const ServicesContainer = styled.div`
     flex-direction: column;
     margin: 0 auto;
 `
-
-export let cart = []
 
 const CarrinhoContainer = styled.div`
     display: flex;
@@ -86,7 +84,7 @@ const SomaContainer = styled.div`
 	border: 1px solid gray;
     border-radius: 30px;
     background-color: white;
-    -webkit-box-shadow: 4px 6px 3px #727D71;
+    box-shadow: 4px 6px 3px #727D71;
 
     width: 300px;
     height: 150px;
@@ -117,6 +115,7 @@ const BotaoCompra = styled.button`
     font-weight: 800;
     width: 200px;
     margin: 0 auto;
+    height: 30px;
 `
 
 const VoltarContainer = styled.div`
@@ -126,7 +125,7 @@ const VoltarContainer = styled.div`
 
 const BotaoVoltar = styled.button`
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     width: 200px;
     height: 30px;
     
@@ -141,89 +140,79 @@ const BotaoVoltar = styled.button`
     font-weight: 800;
 `
 
+const ContainerEmpty = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
+const EmptyCart = styled.img`
+    width: 50%;
+    height: 50%;
+`
 
 export class Carrinho extends React.Component {
-    state = {
-        cart: servicesInCart
-    }
-
-    removeServiceCart = (serviceId) => {
-        if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
-            const newServicesInCart = this.state.cart.map((servico) => {
-                if (serviceId === servico.id) {
-                    return {
-                        ...servico, 
-                        itens: servico.itens -1
-                    }
-                }
-                return servico
-            })
-            .filter((servico) => {
-                return (servico.itens > 0)
-            })
-    
-            this.setState({
-                cart: newServicesInCart
-            })
-            alert(`O item foi deletado do carrinho.`)
-        }
-    }
 
     totalCart = () => {
         let totalPrice = 0
 
-        for (let service of this.state.cart) {
+        for (let service of this.props.servicesInCart) {
             totalPrice += service.price
         }
 
         return totalPrice
     }
 
-    CompletedCart = () => {
-        alert(`Obrigado por contratar com a gente. Volte sempre!`)
-        this.setState({
-            cart: []
-        })
-    }
-
     render() {
-        cart = this.state.cart
-
+        const listCart = this.props.servicesInCart.map((servico) => {
+            return (
+                <CarrinhoContainer key={servico.id}>
+                    <CardCarrinhoContainer>
+                        <h3>{servico.title}</h3>
+                        <h3>Preço: R$ {servico.price}</h3>
+                    </CardCarrinhoContainer>
+                    <BotaoLixeira onClick={() => this.props.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
+                </CarrinhoContainer>
+            )
+        })
         return (
-            <BackgroundSite> 
-                
-                <ContainerPrincipal>
+            <div>
+                {listCart.length > 0 ? (
+                    <BackgroundSite> 
+
+                    <ContainerPrincipal>
+                        
+                        <ServicesContainer>
+                            {listCart}
+                        </ServicesContainer>
+                        
+                        <SomaContainer>
+                            <h2>Total de compras</h2>
+                            <h3>Preço: R$ {this.totalCart()}</h3>
+                            <BotaoCompra onClick={this.props.completedCart}> Finalizar Compra</BotaoCompra>
+                        </SomaContainer>
                     
-                    <ServicesContainer>
-                        {this.state.cart.map((servico) => {
-                            return (
-                                <CarrinhoContainer key={servico.id}>
-                                    <CardCarrinhoContainer>
-                                        <h3>{servico.title}</h3>
-                                        <h3>Preço: R$ {servico.price}</h3>
-                                    </CardCarrinhoContainer>
-                                        <BotaoLixeira onClick={() => this.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
-                                    </CarrinhoContainer>
-                            )
-                        })}
-                    </ServicesContainer>
+                    </ContainerPrincipal>
                     
-                    <SomaContainer>
-                        <h2>Total de compras</h2>
-                        <h3>Preço: R$ {this.totalCart()}</h3>
-                        <BotaoCompra onClick={this.CompletedCart}> Finalizar Compra</BotaoCompra>
-                    </SomaContainer>
+                    <VoltarContainer>
+                        <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
+                    </VoltarContainer>
                 
-                </ContainerPrincipal>
-                
-                <VoltarContainer>
-                    <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
-                </VoltarContainer>
-            
-            </BackgroundSite>    
+                </BackgroundSite>
+                ) : (
+                    <div>
+                        <ContainerEmpty>
+                            <EmptyCart src={emptyCart} alt="Carrinho vazio"/>
+                            <h3>Seu carrinho ainda está vazio!</h3>
+                        </ContainerEmpty>
+                        <VoltarContainer>
+                            <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
+                        </VoltarContainer>
+                    </div>
+                )} 
+            </div>
         )
     }
 }
 
-export default {Carrinho, cart}
+export default {Carrinho}

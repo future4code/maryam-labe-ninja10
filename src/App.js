@@ -8,14 +8,11 @@ import { Carrinho } from './components/Carrinho/Carrinho';
 import DetalhesServicos from './components/Servicos/DetalhesServicos';
 import GlobalStyle from './styles/Global'
 
-
-
-
-
 export default class App extends React.Component {
 	state = {
 		currentPage: 'home',
-		servicoClicado: ""
+		servicoClicado: "",
+		servicesInCart: []
 	}
 
 	changePage = (currentPage) => {
@@ -25,9 +22,38 @@ export default class App extends React.Component {
 	}
 
 	goToDetailPage = (id) => {
-		this.setState({ currentPage: 'detalhes', servicoClicado: id })
-		console.log(id)
+		this.setState({ 
+			currentPage: 'detalhes', 
+			servicoClicado: id 
+		})
 	}
+
+	addToCart = (service) => {
+		const newService = [...this.state.servicesInCart, service]
+		this.setState({
+			servicesInCart: newService
+		})
+        alert('Seu produto foi adicionado ao carrinho')
+    }
+
+	removeServiceCart = (serviceId) => {
+        if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
+			const newServicesInCart = this.state.servicesInCart.filter((service) => {
+				return service.id !== serviceId
+			})
+			this.setState({
+				servicesInCart: newServicesInCart
+			})
+            alert(`O item foi deletado do carrinho.`)
+        }
+    }
+
+	completedCart = () => {
+        alert(`Obrigado por contratar com a gente. Volte sempre!`)
+        this.setState({
+            servicesInCart: []
+        })
+    }
 
 	render() {
 
@@ -36,13 +62,13 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho changePage={this.changePage} />
+					return <Carrinho changePage={this.changePage} servicesInCart={this.state.servicesInCart} removeServiceCart={this.removeServiceCart} completedCart={this.completedCart}/>
 				case 'servicos':
-					return <Servicos goToDetailPage={this.goToDetailPage} />
+					return <Servicos goToDetailPage={this.goToDetailPage} addToCart={this.addToCart} />
 				case 'register':
 					return <Register />
 				case 'detalhes':
-					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} />
+					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} addToCart={this.addToCart}/>
 				default:
 					return <Home changePage={this.changePage}/>
 			}
