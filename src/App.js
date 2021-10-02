@@ -26,8 +26,10 @@ export default class App extends React.Component {
 	}
 
 	goToDetailPage = (id) => {
-		this.setState({ currentPage: 'detalhes', servicoClicado: id })
-		console.log(id)
+		this.setState({ 
+			currentPage: 'detalhes', 
+			servicoClicado: id 
+		})
 	}
 
 	addToCart = (service) => {
@@ -70,7 +72,7 @@ export default class App extends React.Component {
 				case 'register':
 					return <Register />
 				case 'detalhes':
-					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} />
+					return <DetalhesServicos changePage={this.changePage} id={this.state.servicoClicado} addToCart={this.addToCart}/>
 				default:
 					return <Home changePage={this.changePage}/>
 			}

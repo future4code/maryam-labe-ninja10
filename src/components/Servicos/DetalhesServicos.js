@@ -131,37 +131,7 @@ export default class DetalhesServicos extends React.Component {
         .catch((err) => console.log(err.response))
     };
 
-    // addToCart = (serviceId) => {
-    //     const serviceInCart = this.state.servicesInCart.find(servico => serviceId === servico.id)
-
-    //     if (serviceInCart) {
-    //         const newServicesInCart = this.state.servicesInCart.map((servico) => {
-    //             if (serviceId === servico.id) {
-    //                 return {
-    //                     ...servico, 
-    //                     itens: servico.itens + 1
-    //                 }
-    //             }
-    //             return servico
-    //         })
-    //         this.setState({
-    //             servicesInCart: newServicesInCart
-    //         })
-    //     }
-    //     else {
-    //         const serviceToAdd = this.state.servicos.find(servico => serviceId === servico.id)
-
-    //         const newServicesInCart = [...this.state.servicesInCart, {...serviceToAdd, itens: 1}]
-    //         this.setState({
-    //             servicesInCart: newServicesInCart
-    //         })
-    //     }
-    //     alert('Seu produto foi adicionado ao carrinho')
-    // };
-
-
     render() {
-        console.log(this.state.servico)
         return (
             <ContainerPage>
                 <DetalhesServicosContainer/>
@@ -174,7 +144,7 @@ export default class DetalhesServicos extends React.Component {
                         </Descricao>
                     </Cardes>
                     <BotoesContainer>
-                            <Botão1 /*</BotoesContainer>onClick={() => this.addToCart(this.props.id)}*/>Adicionar ao carrinho</Botão1>
+                            <Botão1 onClick={() => this.props.addToCart(this.state.servico)}>Adicionar ao carrinho</Botão1>
                             <Botão2 onClick={() => this.props.changePage('servicos')}>Voltar para Lista</Botão2>
                     </BotoesContainer>
             </ContainerPage>
