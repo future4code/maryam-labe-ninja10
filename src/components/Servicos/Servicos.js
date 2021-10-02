@@ -11,8 +11,6 @@ const headers = {
     }
 }
 
-export let servicesInCart = []
-
 // Disposição na página
 
 const Escopo = styled.div`
@@ -158,7 +156,6 @@ export class Servicos extends React.Component {
         precoMin: "",
         precoMax: "",
         ordenacao: "",
-        servicesInCart: []
     }
 
     componentDidMount () {
@@ -203,38 +200,8 @@ export class Servicos extends React.Component {
             ordenacao: event.target.value
         })
     }
-
-    addToCart = (serviceId) => {
-        const serviceInCart = this.state.servicesInCart.find(servico => serviceId === servico.id)
-
-        if (serviceInCart) {
-            const newServicesInCart = this.state.servicesInCart.map((servico) => {
-                if (serviceId === servico.id) {
-                    return {
-                        ...servico, 
-                        itens: 1
-                    }
-                }
-                return servico
-            })
-            this.setState({
-                servicesInCart: newServicesInCart
-            })
-        }
-        else {
-            const serviceToAdd = this.state.servicos.find(servico => serviceId === servico.id)
-
-            const newServicesInCart = [...this.state.servicesInCart, {...serviceToAdd, itens: 1}]
-            this.setState({
-                servicesInCart: newServicesInCart
-            })
-        }
-        alert('Seu produto foi adicionado ao carrinho')
-    }
     
-    render() {    
-        servicesInCart = this.state.servicesInCart
-        
+    render() {            
         return (
             <Escopo>
 
@@ -298,7 +265,7 @@ export class Servicos extends React.Component {
                             let precoFormatado = servico.price.toLocaleString('pt-BR')
                             return (
                                 <Cards 
-                                key={servico.id}>
+                                key={servico.id} servico={servico}>
                                     <CardWhite>
                                         <h3>{servico.title}</h3>
                                         <p>
@@ -312,7 +279,7 @@ export class Servicos extends React.Component {
                                         </p>
                                     </CardWhite>
                                     <BotaoDetalhes onClick={() => this.props.goToDetailPage(servico.id)}>Ver Detalhes</BotaoDetalhes>
-                                    <BotaoCarrinho onClick={() => this.addToCart(servico.id)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
+                                    <BotaoCarrinho onClick={() => this.props.addToCart(servico)}><img src={carrinho} alt="carrinho imagem" /></BotaoCarrinho>
                                 </Cards>
                             )
                         })            
@@ -325,4 +292,4 @@ export class Servicos extends React.Component {
     } 
 }
 
-export default {Servicos, servicesInCart}
+export default {Servicos}
