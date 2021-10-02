@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import lixeira from "../../imgs/lixeira1.png"
+import emptyCart from '../../imgs/empty-cart.svg'
 
 // Background Carrinho
 
@@ -114,6 +115,7 @@ const BotaoCompra = styled.button`
     font-weight: 800;
     width: 200px;
     margin: 0 auto;
+    height: 30px;
 `
 
 const VoltarContainer = styled.div`
@@ -123,7 +125,7 @@ const VoltarContainer = styled.div`
 
 const BotaoVoltar = styled.button`
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     width: 200px;
     height: 30px;
     
@@ -136,6 +138,17 @@ const BotaoVoltar = styled.button`
     border: hidden;
     font-weight: bold;
     font-weight: 800;
+`
+
+const ContainerEmpty = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const EmptyCart = styled.img`
+    width: 50%;
+    height: 50%;
 `
 
 export class Carrinho extends React.Component {
@@ -151,38 +164,53 @@ export class Carrinho extends React.Component {
     }
 
     render() {
+        const listCart = this.props.servicesInCart.map((servico) => {
+            return (
+                <CarrinhoContainer key={servico.id}>
+                    <CardCarrinhoContainer>
+                        <h3>{servico.title}</h3>
+                        <h3>Preço: R$ {servico.price}</h3>
+                    </CardCarrinhoContainer>
+                    <BotaoLixeira onClick={() => this.props.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
+                </CarrinhoContainer>
+            )
+        })
         return (
-            <BackgroundSite> 
-                
-                <ContainerPrincipal>
+            <div>
+                {listCart.length > 0 ? (
+                    <BackgroundSite> 
+
+                    <ContainerPrincipal>
+                        
+                        <ServicesContainer>
+                            {listCart}
+                        </ServicesContainer>
+                        
+                        <SomaContainer>
+                            <h2>Total de compras</h2>
+                            <h3>Preço: R$ {this.totalCart()}</h3>
+                            <BotaoCompra onClick={this.props.completedCart}> Finalizar Compra</BotaoCompra>
+                        </SomaContainer>
                     
-                    <ServicesContainer>
-                        {this.props.servicesInCart.map((servico) => {
-                            return (
-                                <CarrinhoContainer key={servico.id}>
-                                    <CardCarrinhoContainer>
-                                        <h3>{servico.title}</h3>
-                                        <h3>Preço: R$ {servico.price}</h3>
-                                    </CardCarrinhoContainer>
-                                        <BotaoLixeira onClick={() => this.props.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
-                                    </CarrinhoContainer>
-                            )
-                        })}
-                    </ServicesContainer>
+                    </ContainerPrincipal>
                     
-                    <SomaContainer>
-                        <h2>Total de compras</h2>
-                        <h3>Preço: R$ {this.totalCart()}</h3>
-                        <BotaoCompra onClick={this.props.completedCart}> Finalizar Compra</BotaoCompra>
-                    </SomaContainer>
+                    <VoltarContainer>
+                        <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
+                    </VoltarContainer>
                 
-                </ContainerPrincipal>
-                
-                <VoltarContainer>
-                    <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
-                </VoltarContainer>
-            
-            </BackgroundSite>    
+                </BackgroundSite>
+                ) : (
+                    <div>
+                        <ContainerEmpty>
+                            <EmptyCart src={emptyCart} alt="Carrinho vazio"/>
+                            <h3>Seu carrinho ainda está vazio!</h3>
+                        </ContainerEmpty>
+                        <VoltarContainer>
+                            <BotaoVoltar onClick={() => this.props.changePage("servicos")}>Voltar para Lista</BotaoVoltar>
+                        </VoltarContainer>
+                    </div>
+                )} 
+            </div>
         )
     }
 }

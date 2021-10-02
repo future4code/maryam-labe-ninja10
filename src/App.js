@@ -8,10 +8,6 @@ import { Carrinho } from './components/Carrinho/Carrinho';
 import DetalhesServicos from './components/Servicos/DetalhesServicos';
 import GlobalStyle from './styles/Global'
 
-
-
-
-
 export default class App extends React.Component {
 	state = {
 		currentPage: 'home',
