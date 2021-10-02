@@ -47,3 +47,17 @@ A estilização do site, montada no wireframe, foi pensada de forma que as infor
 6. A página de detalhes do serviço mostra todas as informações daquele serviço, caso o usuário tenha interesse em saber das formas de pagamento e da descrição. 
 7. A página do carrinho dispõe a lista de produtos/serviços selecionados do lado esquerdo da tela e um card com a soma dos produtos e o botão de finalizar a compra do lado direito. Escolhemos fazer dessa forma para seguir um padrão que ocorre na maioria dos e-commerces, tornando o site intuitivo para primeiros usuários.
 
+### PRINTS
+![image](https://user-images.githubusercontent.com/84817937/135732270-0aa8146a-119a-433f-91dd-fe3754122f56.png)
+![image](https://user-images.githubusercontent.com/84817937/135732274-1b7a14ff-93a7-420e-af04-ff8cafc80544.png)
+![image](https://user-images.githubusercontent.com/84817937/135732279-b954cc09-e6cf-458d-a9d9-1a2fa3df0cc1.png)
+![image](https://user-images.githubusercontent.com/84817937/135732284-96ff4ad3-d201-4e3a-bc78-9dd5475944e8.png)
+![image](https://user-images.githubusercontent.com/84817937/135732287-5beeb50c-7ebf-495c-ac93-cd594d91e075.png)
+![image](https://user-images.githubusercontent.com/84817937/135732296-5283c831-ef0e-4086-9671-4307232d579c.png)
+
+
+
+
+
+
+
