@@ -86,7 +86,7 @@ const SomaContainer = styled.div`
 	border: 1px solid gray;
     border-radius: 30px;
     background-color: white;
-    -webkit-box-shadow: 4px 6px 3px #727D71;
+    box-shadow: 4px 6px 3px #727D71;
 
     width: 300px;
     height: 150px;
