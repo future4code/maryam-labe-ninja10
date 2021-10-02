@@ -26,6 +26,8 @@ const ServicesContainer = styled.div`
     margin: 0 auto;
 `
 
+export let cart = []
+
 const CarrinhoContainer = styled.div`
     display: flex;
     background-color: #FF9933;
@@ -141,7 +143,7 @@ const BotaoVoltar = styled.button`
 
 
 
-export default class Carrinho extends React.Component {
+export class Carrinho extends React.Component {
     state = {
         cart: servicesInCart
     }
@@ -186,6 +188,8 @@ export default class Carrinho extends React.Component {
     }
 
     render() {
+        cart = this.state.cart
+
         return (
             <BackgroundSite> 
                 
@@ -221,3 +225,5 @@ export default class Carrinho extends React.Component {
         )
     }
 }
+
+export default {Carrinho, cart}
