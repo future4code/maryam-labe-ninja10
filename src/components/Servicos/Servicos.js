@@ -20,11 +20,14 @@ const Escopo = styled.div`
     flex-grow: inherit;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #F5F6FA;
+    margin: 0;
 `
 
 const ContainerGlobal = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 0;
+    align-items: center;
 `
 
 
@@ -32,13 +35,13 @@ const ContainerGlobal = styled.div`
 
 const ContainerPesquisa = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 30px;
     margin-bottom: 20px;
     
     input {
         width: 400px;
-        height: 24px;
+        height: 30px;
         border-radius: 20px;
         color: #FF9933;
         font-weight: 800;
@@ -74,7 +77,7 @@ const ContainerServicos = styled.div`
 
 const Cards = styled.div`
     background-color: #FF9933;
-    width: 280px;
+    width: 300px;
     margin: 10px;
     border-radius: 25px;
     color: black;
@@ -83,19 +86,22 @@ const Cards = styled.div`
 `
 
 const CardWhite = styled.div`
-    width: 230px;
-    height: 150px;
+    width: 250px;
+    height: 130px;
     background-color: white;
     box-shadow: 4px 5px 3px #a25922;
 	border: 1px solid gray;
     border-radius: 10px;
     
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     margin-top: 15px;
     margin-bottom: 10px;
     text-align: center;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    
 `
 
 const BotaoDetalhes = styled.button`

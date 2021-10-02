@@ -9,6 +9,7 @@ import { servicesInCart } from "./Servicos";
 const ContainerPage = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 0;
     background-color: #F5F6FA;
     align-items: center;
     justify-content: center;
@@ -30,21 +31,36 @@ const Cardes = styled.div`
     margin-top: 30px;
     margin-bottom: 25px;
     border-radius: 30px;
-    width: 400px;
+    width: 420px;
     height: 200px;
-    -webkit-box-shadow: 6px 8px #727D71;
+    box-shadow: 6px 8px 3px #727D71;
 	border: 1px solid gray;
     background-color: white;
 
 `
 
 const Descricao = styled.div`
+    display: flex;
+    flex-direction: column;
     color: black;
     font-weight: 600;
     font-size: medium;
     text-align: center; 
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    h2{
+        margin-bottom: 10px;
+    }
+    h3{
+        margin-bottom: 10px;
+    }
+    p{
+        margin-bottom: 10px;
+    }
+
 `
 
 
@@ -70,7 +86,7 @@ const Botão1 = styled.button`
     
     border: hidden;
     border-radius: 20px;
-    -webkit-box-shadow: 3px 5px #727D71;
+    box-shadow: 3px 5px 3px #727D71;
     cursor: pointer;
 
 `
@@ -88,7 +104,7 @@ const Botão2 = styled.button`
 	border: none;
     border-radius: 20px;
     border: 1px solid gray;
-    -webkit-box-shadow: 3px 4px #727D71;
+    box-shadow: 3px 4px 3px #727D71;
     cursor: pointer;
 
 `

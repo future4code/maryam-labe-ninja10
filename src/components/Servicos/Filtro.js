@@ -7,18 +7,23 @@ import filtro from "../../imgs/filtro.png"
 const ContainerFiltro = styled.div `
     display: flex;
     flex-direction: column;
+    align-items: center;
+
     height: 100%;
     width: 240px;
+    
     background-color: #FF9933;
     color: white;
     align-items: center;
+    
     padding: 25px;
     margin-right: 70px;
+    
     input {
         width: 180px;
         margin-top: 40px;
         border-radius: 20px;
-        height: 25px;
+        height: 30px;
         cursor: pointer;
         color: #FF9933;
         font-weight: 800;

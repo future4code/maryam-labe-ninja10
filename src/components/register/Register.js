@@ -19,22 +19,29 @@ const ContainerPageRegister = styled.div`
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `
 
+const ContainerPrincipal = styled.div`
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+`
+
 const ContainerRegister = styled.div`
     background-color: ghostwhite;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     width: 500px;
     height: 600px;
     box-shadow: 8px 10px 3px 3px #a25922;
 
-    h2 {
-        margin-top: 30px;
+    h2{
+        margin-bottom: -50px;
     }
+`
 
-    button {
-        margin-top: 15px;
+const BotaoCadastro = styled.button`
         border-radius: 40px;
         background-color: #FF9933;
         color: white;
@@ -45,13 +52,15 @@ const ContainerRegister = styled.div`
         font-weight: 800;
         font-size: medium;
         box-shadow: 3px 4px 3px #727D71;
-        }
+        margin-top: -60px;
+
 `
 
 const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 
 `
 const AllInputs = styled.input`
@@ -68,12 +77,12 @@ const AllInputs = styled.input`
 const LabelPagamentos = styled.label`
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 15px;
     color: #FF9933;
     font-weight: 600;
     cursor: pointer;
     h3{
+        margin-bottom: 20px;
         align-items: center;
         font-weight: 800;
     }
@@ -83,6 +92,7 @@ const Checkbox = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    
 
     input {
         width: 20px;
@@ -208,36 +218,41 @@ class Register extends React.Component {
                 </label>
             )
         })
+        
+        
         return (
             <ContainerPageRegister>
-                <ContainerRegister>
-                    <h2>Cadastre o seu serviço</h2>
-                    <ContainerForm>
-                        <label htmlFor="servico">
-                            <AllInputs
-                                type="text" id="servico" name="servico" placeholder="Título"
-                                value={this.state.servico} onChange={this.onChangeServico} />
-                        </label>
-                        <label htmlFor="descricao">
-                            <AllInputs
-                                type="text" id="descricao" name="descricao" placeholder="Descrição"
-                                value={this.state.descricao} onChange={this.onChangeDescricao} />
-                        </label>
-                        <label htmlFor="prazo">
-                            <AllInputs type="date" id="prazo" name="prazo"
-                                value={this.state.prazo} onChange={this.onChangePrazo} />
-                        </label>
-                        <label htmlFor="preco">
-                            <AllInputs type="number" id="preco" name="preco" placeholder="Preço" min="0"
-                                value={this.state.preco} onChange={this.onChangePreco} />
-                        </label>
-                        <LabelPagamentos>
-                            <h3>Formas de Pagamento:</h3>
-                            {checkBoxesPagamento}
-                        </LabelPagamentos>
-                    </ContainerForm>
-                    <button onClick={this.createJob}>Cadastrar Serviço</button>
-                </ContainerRegister>
+                <ContainerPrincipal>    
+                    <ContainerRegister>
+                        <h2>Cadastre o seu serviço</h2>
+                        <ContainerForm>
+                            <label htmlFor="servico">
+                                <AllInputs
+                                    type="text" id="servico" name="servico" placeholder="Título"
+                                    value={this.state.servico} onChange={this.onChangeServico} />
+                            </label>
+                            <label htmlFor="descricao">
+                                <AllInputs
+                                    type="text" id="descricao" name="descricao" placeholder="Descrição"
+                                    value={this.state.descricao} onChange={this.onChangeDescricao} />
+                            </label>
+                            <label htmlFor="prazo">
+                                <AllInputs type="date" id="prazo" name="prazo"
+                                    value={this.state.prazo} onChange={this.onChangePrazo} />
+                            </label>
+                            <label htmlFor="preco">
+                                <AllInputs type="number" id="preco" name="preco" placeholder="Preço" min="0"
+                                    value={this.state.preco} onChange={this.onChangePreco} />
+                            </label>
+                            <LabelPagamentos>
+                                <h3>Formas de Pagamento:</h3>
+                                {checkBoxesPagamento}
+                            </LabelPagamentos>
+                        </ContainerForm>
+                        <BotaoCadastro onClick={this.createJob}>Cadastrar Serviço</BotaoCadastro>
+                    </ContainerRegister>
+                </ContainerPrincipal>
+            
             </ContainerPageRegister>
         )
     }
