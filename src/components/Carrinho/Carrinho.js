@@ -144,9 +144,6 @@ const BotaoVoltar = styled.button`
 
 
 export class Carrinho extends React.Component {
-    state = {
-        cart: servicesInCart
-    }
 
     removeServiceCart = (serviceId) => {
         if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
@@ -173,7 +170,7 @@ export class Carrinho extends React.Component {
     totalCart = () => {
         let totalPrice = 0
 
-        for (let service of this.state.cart) {
+        for (let service of this.props.servicesInCart) {
             totalPrice += service.price
         }
 
@@ -188,15 +185,13 @@ export class Carrinho extends React.Component {
     }
 
     render() {
-        cart = this.state.cart
-
         return (
             <BackgroundSite> 
                 
                 <ContainerPrincipal>
                     
                     <ServicesContainer>
-                        {this.state.cart.map((servico) => {
+                        {this.props.servicesInCart.map((servico) => {
                             return (
                                 <CarrinhoContainer key={servico.id}>
                                     <CardCarrinhoContainer>

@@ -15,7 +15,8 @@ import GlobalStyle from './styles/Global'
 export default class App extends React.Component {
 	state = {
 		currentPage: 'home',
-		servicoClicado: ""
+		servicoClicado: "",
+		servicesInCart: []
 	}
 
 	changePage = (currentPage) => {
@@ -29,6 +30,14 @@ export default class App extends React.Component {
 		console.log(id)
 	}
 
+	addToCart = (service) => {
+		const newService = [...this.state.servicesInCart, service]
+		this.setState({
+			servicesInCart: newService
+		})
+        alert('Seu produto foi adicionado ao carrinho')
+    }
+
 	render() {
 
 		const renderCurrentPage = () => {
@@ -36,9 +45,9 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho changePage={this.changePage} />
+					return <Carrinho changePage={this.changePage} servicesInCart={this.state.servicesInCart}/>
 				case 'servicos':
-					return <Servicos goToDetailPage={this.goToDetailPage} />
+					return <Servicos goToDetailPage={this.goToDetailPage} addToCart={this.addToCart} />
 				case 'register':
 					return <Register />
 				case 'detalhes':
