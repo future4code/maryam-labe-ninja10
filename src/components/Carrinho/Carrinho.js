@@ -86,7 +86,7 @@ const SomaContainer = styled.div`
 	border: 1px solid gray;
     border-radius: 30px;
     background-color: white;
-    -webkit-box-shadow: 4px 6px 3px #727D71;
+    box-shadow: 4px 6px 3px #727D71;
 
     width: 300px;
     height: 150px;
@@ -145,27 +145,7 @@ const BotaoVoltar = styled.button`
 
 export class Carrinho extends React.Component {
 
-    removeServiceCart = (serviceId) => {
-        if (window.confirm(`Tem certeza que deseja excluir o item do carrinho?`)) {
-            const newServicesInCart = this.state.cart.map((servico) => {
-                if (serviceId === servico.id) {
-                    return {
-                        ...servico, 
-                        itens: servico.itens -1
-                    }
-                }
-                return servico
-            })
-            .filter((servico) => {
-                return (servico.itens > 0)
-            })
-    
-            this.setState({
-                cart: newServicesInCart
-            })
-            alert(`O item foi deletado do carrinho.`)
-        }
-    }
+
 
     totalCart = () => {
         let totalPrice = 0
@@ -198,7 +178,7 @@ export class Carrinho extends React.Component {
                                         <h3>{servico.title}</h3>
                                         <h3>Preço: R$ {servico.price}</h3>
                                     </CardCarrinhoContainer>
-                                        <BotaoLixeira onClick={() => this.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
+                                        <BotaoLixeira onClick={() => this.props.removeServiceCart(servico.id)}><img src={lixeira} alt="lixeira imagem" /></BotaoLixeira>
                                     </CarrinhoContainer>
                             )
                         })}
