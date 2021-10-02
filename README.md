@@ -9,6 +9,9 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 - Adicionar produtos ao carrinho, visualizando o total da compra
 - Finalizar a compra, contratando um ou mais serviços.
 
+### LINK DO SITE
+https://nexum-labenu.surge.sh/
+
 ### LOGO
 
 ![logo-alternativa](https://user-images.githubusercontent.com/84152828/135164579-2c370ec5-7709-43f1-a96b-c942d4c637f9.png)
@@ -27,14 +30,11 @@ O Nexum é um projeto que conecta prestadores de serviço e pessoas que precisam
 
 https://coolors.co/ff9933-000000-ffffff-727d71-f5f6fa
 
-
 ### WIREFRAME
 
 [WireFrame-Maryam-10.drawio (1).pdf](https://github.com/future4code/maryam-labe-ninja10/files/7247400/WireFrame-Maryam-10.drawio.1.pdf)
 
 ![WireFrame-Maryam-10 drawio](https://user-images.githubusercontent.com/84152828/135168648-d8ec6aa5-abe7-49f5-9a25-796dc50c939e.png)
-
-
 
 ### DESCRIÇÃO
 
