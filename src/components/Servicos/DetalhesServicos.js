@@ -1,8 +1,6 @@
 import axios from "axios";
 import React from "react";
 import styled from "styled-components";
-import { servicesInCart } from "./Servicos";
-
 
 // Container Background
 
@@ -114,7 +112,6 @@ const Botão2 = styled.button`
 export default class DetalhesServicos extends React.Component {
     state = {
         servico: {},
-        servicesInCart: servicesInCart
     };
 
     componentDidMount(){

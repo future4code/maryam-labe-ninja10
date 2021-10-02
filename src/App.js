@@ -50,6 +50,13 @@ export default class App extends React.Component {
         }
     }
 
+	completedCart = () => {
+        alert(`Obrigado por contratar com a gente. Volte sempre!`)
+        this.setState({
+            servicesInCart: []
+        })
+    }
+
 	render() {
 
 		const renderCurrentPage = () => {
@@ -57,7 +64,7 @@ export default class App extends React.Component {
 				case 'home':
 					return <Home changePage={this.changePage} />
 				case 'carrinho':
-					return <Carrinho changePage={this.changePage} servicesInCart={this.state.servicesInCart} removeServiceCart={this.removeServiceCart}/>
+					return <Carrinho changePage={this.changePage} servicesInCart={this.state.servicesInCart} removeServiceCart={this.removeServiceCart} completedCart={this.completedCart}/>
 				case 'servicos':
 					return <Servicos goToDetailPage={this.goToDetailPage} addToCart={this.addToCart} />
 				case 'register':

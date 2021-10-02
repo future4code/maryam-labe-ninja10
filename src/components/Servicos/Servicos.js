@@ -11,8 +11,6 @@ const headers = {
     }
 }
 
-export let servicesInCart = []
-
 // Disposição na página
 
 const Escopo = styled.div`
@@ -203,9 +201,7 @@ export class Servicos extends React.Component {
         })
     }
     
-    render() {    
-        servicesInCart = this.state.servicesInCart
-        
+    render() {            
         return (
             <Escopo>
 
@@ -296,4 +292,4 @@ export class Servicos extends React.Component {
     } 
 }
 
-export default {Servicos, servicesInCart}
+export default {Servicos}

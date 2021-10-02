@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { servicesInCart } from '../Servicos/Servicos'
 import lixeira from "../../imgs/lixeira1.png"
 
 // Background Carrinho
@@ -25,8 +24,6 @@ const ServicesContainer = styled.div`
     flex-direction: column;
     margin: 0 auto;
 `
-
-export let cart = []
 
 const CarrinhoContainer = styled.div`
     display: flex;
@@ -141,11 +138,7 @@ const BotaoVoltar = styled.button`
     font-weight: 800;
 `
 
-
-
 export class Carrinho extends React.Component {
-
-
 
     totalCart = () => {
         let totalPrice = 0
@@ -155,13 +148,6 @@ export class Carrinho extends React.Component {
         }
 
         return totalPrice
-    }
-
-    CompletedCart = () => {
-        alert(`Obrigado por contratar com a gente. Volte sempre!`)
-        this.setState({
-            cart: []
-        })
     }
 
     render() {
@@ -187,7 +173,7 @@ export class Carrinho extends React.Component {
                     <SomaContainer>
                         <h2>Total de compras</h2>
                         <h3>Preço: R$ {this.totalCart()}</h3>
-                        <BotaoCompra onClick={this.CompletedCart}> Finalizar Compra</BotaoCompra>
+                        <BotaoCompra onClick={this.props.completedCart}> Finalizar Compra</BotaoCompra>
                     </SomaContainer>
                 
                 </ContainerPrincipal>
@@ -201,4 +187,4 @@ export class Carrinho extends React.Component {
     }
 }
 
-export default {Carrinho, cart}
+export default {Carrinho}
