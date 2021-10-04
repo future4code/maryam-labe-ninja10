@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 // Container Background
 
@@ -12,6 +13,8 @@ const ContainerPage = styled.div`
     align-items: center;
     justify-content: center;
     font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 73vh;
+    padding-bottom: 62px;
 `
 
 const DetalhesServicosContainer= styled.div`
@@ -86,6 +89,13 @@ const Botão1 = styled.button`
     border-radius: 20px;
     box-shadow: 3px 5px 3px #727D71;
     cursor: pointer;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: whitesmoke;
+        color: #FF9933;
+        box-shadow: 5px 6px 3px 2px #FF9933;
+    }
 
 `
 
@@ -101,9 +111,15 @@ const Botão2 = styled.button`
 
 	border: none;
     border-radius: 20px;
-    border: 1px solid gray;
     box-shadow: 3px 4px 3px #727D71;
     cursor: pointer;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: #FF9933;
+        color: white;
+        box-shadow: 5px 6px 3px #727D71;
+    }
 
 `
 
@@ -132,6 +148,9 @@ export default class DetalhesServicos extends React.Component {
     };
 
     render() {
+        let data = Date.parse(this.state.servico.dueDate);
+        const moment = require('moment-timezone');
+        let dataFormatada = moment(data).tz('Atlantic/St_Helena').format('DD/MM/YYYY')
         return (
             <ContainerPage>
                 <DetalhesServicosContainer/>
@@ -139,7 +158,7 @@ export default class DetalhesServicos extends React.Component {
                         <Descricao>
                             <h2>{this.state.servico.title}</h2>
                             <h3>{this.state.servico.description}</h3>
-                            <p>Prazo: {this.state.servico.dueDate}</p>
+                            <p>Prazo: {dataFormatada}</p>
                             <p>Preço: R$ {this.state.servico.price}</p>
                         </Descricao>
                     </Cardes>
