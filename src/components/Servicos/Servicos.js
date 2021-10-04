@@ -80,6 +80,11 @@ const Cards = styled.div`
     border-radius: 25px;
     color: black;
     box-shadow: 3px 5px 3px 3px #727D71;
+    transition: all 700ms;
+
+    :hover {
+        transform: scale(1.07)
+    }
 
 `
 
@@ -122,6 +127,13 @@ const BotaoDetalhes = styled.button`
     border: hidden;
     font-weight: bold;
     font-weight: 800;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color:#727D71 ;
+        color: white;
+        box-shadow: 3px 5px 3px ghostwhite;
+    }
 
 `
 
@@ -144,6 +156,13 @@ const BotaoCarrinho = styled.button`
     cursor: pointer;
     border: hidden;
     font-weight: 800;
+    transition: transform 700ms, box-shadow 700ms;
+
+    :hover {
+        transform: scale(1.1);
+        box-shadow: 3px 5px 3px #a25922;
+    }
+    
 `
 
 
@@ -219,6 +238,7 @@ export class Servicos extends React.Component {
                     <input placeholder="Busca por título ou descrição" type="text" id="nomeServico" name="nomeServico" value={this.state.buscar} onChange={this.updateBuscar} />
 
                     <select value={this.state.ordenacao} onChange={this.updateOrdenacao}>
+                        <option value="sem ordenação">Ordenar</option>
                         <option value="titulo">Título</option>
                         <option value="decrescente preço">Decrescente</option>
                         <option value="crescente preço">Crescente</option>

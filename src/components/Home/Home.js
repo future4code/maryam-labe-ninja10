@@ -80,6 +80,13 @@ const ButtonService = styled.button`
     font-weight: 800;
     font-size: medium;
     box-shadow: 5px 6px 3px #727D71;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: whitesmoke;
+        color: #FF9933;
+        box-shadow: 5px 6px 3px 2px #FF9933;
+    }
 `
 
 const ButtonClient = styled.button`
@@ -96,6 +103,14 @@ const ButtonClient = styled.button`
     cursor: pointer;
     font-weight: 800;
     font-size: medium;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: #FF9933;
+        color: white;
+        box-shadow: 5px 6px 3px ghostwhite;
+    }
+
 `
 
 // Textos

@@ -39,7 +39,12 @@ const ButtonHome = styled.button`
     border: hidden;
     font-weight: 800;
     font-size: larger;
-    
+    transition: color 600ms, transform 600ms;
+
+    :hover {
+        color: #FF9933;
+        transform: scale(1.1);
+    }
 `
 const ButtonCart = styled.button`
     margin-right: 220px;
@@ -49,20 +54,29 @@ const ButtonCart = styled.button`
     border: hidden;
     font-weight: 800;
     font-size: larger;
-    
+    transition: color 600ms, transform 600ms;
+
+    :hover {
+        color: #FF9933;
+        transform: scale(1.1);
+    }
 `
 
 const LogoCaixa = styled.img`
     width: 50px;
     margin-left: 220px;
     cursor: pointer;
+    transition: transform 1.5s;
+
+    :hover {
+        transform: scale(1.2) rotate(360deg);
+    }
 `
 
 const LogoNome = styled.img`
     width: 110px;
     margin-right: 20px;
     cursor: pointer;
-    
 `
 
 

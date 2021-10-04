@@ -72,8 +72,13 @@ const BotaoLixeira = styled.button`
     font-weight: 800;
     margin-top: 15px;
     margin-right: 15px;
+    transition: all 700ms;
     img{
         margin-top: 5px;
+    }
+
+    :hover {
+        transform: scale(1.1);
     }
 `
 
@@ -116,6 +121,13 @@ const BotaoCompra = styled.button`
     width: 200px;
     margin: 0 auto;
     height: 30px;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: whitesmoke;
+        color: #FF9933;
+        box-shadow: 5px 6px 3px 2px #FF9933;
+    }
 `
 
 const VoltarContainer = styled.div`
@@ -138,6 +150,13 @@ const BotaoVoltar = styled.button`
     border: hidden;
     font-weight: bold;
     font-weight: 800;
+    transition: background-color 1s, color 1s, box-shadow 1s;
+
+    :hover {
+        background-color: whitesmoke;
+        color: #FF9933;
+        box-shadow: 5px 6px 3px 2px #FF9933;
+    }
 `
 
 const ContainerEmpty = styled.div`
