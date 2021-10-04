@@ -1,4 +1,4 @@
-#### PROJETO LabeNinjas
+#### projeto LabeNinjas
 
 # NEXUM
 
